@@ -1,9 +1,11 @@
-// This is the source code of AyuGram for Desktop.
+// This is the source code of ATH0Gram for Desktop.
+// Based on AyuGram for Desktop.
 //
 // We do not and cannot prevent the use of our code,
 // but be respectful and credit the original author.
 //
 // Copyright @Radolyn, 2025
+// Modified by WeaponizedAutism, 2025
 #include "ayu_settings.h"
 
 #include "ayu/ui/ayu_logo.h"
@@ -25,7 +27,7 @@ using json = nlohmann::json;
 
 namespace AyuSettings {
 
-const std::string filename = "tdata/ayu_settings.json";
+const std::string filename = "tdata/ath0_settings.json";
 
 std::optional<AyuGramSettings> settings = std::nullopt;
 

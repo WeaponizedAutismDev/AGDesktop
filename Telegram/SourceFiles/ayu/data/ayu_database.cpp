@@ -1,9 +1,11 @@
-// This is the source code of AyuGram for Desktop.
+// This is the source code of ATH0Gram for Desktop.
+// Based on AyuGram for Desktop.
 //
 // We do not and cannot prevent the use of our code,
 // but be respectful and credit the original author.
 //
 // Copyright @Radolyn, 2025
+// Modified by WeaponizedAutism, 2025
 #include "ayu/data/ayu_database.h"
 
 #include <ranges>
@@ -15,7 +17,7 @@
 
 using namespace sqlite_orm;
 auto storage = make_storage(
-	"./tdata/ayudata.db",
+	"./tdata/ath0data.db",
 	make_table<SchemaVersion>(
 		"SchemaVersion",
 		make_column("id", &SchemaVersion::id, primary_key()),
@@ -214,16 +216,16 @@ namespace AyuDatabase {
 void moveCurrentDatabase() {
 	const auto time = base::unixtime::now();
 
-	if (QFile::exists("./tdata/ayudata.db")) {
-		QFile::rename("./tdata/ayudata.db", QString("./tdata/ayudata_%1.db").arg(time));
+	if (QFile::exists("./tdata/ath0data.db")) {
+		QFile::rename("./tdata/ath0data.db", QString("./tdata/ath0data_%1.db").arg(time));
 	}
 
-	if (QFile::exists("./tdata/ayudata.db-shm")) {
-		QFile::rename("./tdata/ayudata.db-shm", QString("./tdata/ayudata_%1.db-shm").arg(time));
+	if (QFile::exists("./tdata/ath0data.db-shm")) {
+		QFile::rename("./tdata/ath0data.db-shm", QString("./tdata/ath0data_%1.db-shm").arg(time));
 	}
 
-	if (QFile::exists("./tdata/ayudata.db-wal")) {
-		QFile::rename("./tdata/ayudata.db-wal", QString("./tdata/ayudata_%1.db-wal").arg(time));
+	if (QFile::exists("./tdata/ath0data.db-wal")) {
+		QFile::rename("./tdata/ath0data.db-wal", QString("./tdata/ath0data_%1.db-wal").arg(time));
 	}
 }
 

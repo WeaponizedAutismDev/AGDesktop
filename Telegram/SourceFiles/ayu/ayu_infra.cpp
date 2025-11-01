@@ -1,9 +1,11 @@
-// This is the source code of AyuGram for Desktop.
+// This is the source code of ATH0Gram for Desktop.
+// Based on AyuGram for Desktop.
 //
 // We do not and cannot prevent the use of our code,
 // but be respectful and credit the original author.
 //
 // Copyright @Radolyn, 2025
+// Modified by WeaponizedAutism, 2025
 #include "ayu_infra.h"
 
 #include "ayu/ayu_lang.h"
