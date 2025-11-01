@@ -334,7 +334,7 @@ AyuGramSettings::AyuGramSettings() {
 
 	adaptiveCoverColor = true;
 
-	crashReporting = true;
+	crashReporting = false;
 }
 
 void set_sendReadMessages(bool val) {
