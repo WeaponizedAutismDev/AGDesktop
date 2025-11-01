@@ -67,3 +67,8 @@ settings.local.json
 
 # Project specific
 Telegram/SourceFiles/_other/packer_private.h
+
+# Local planning and roadmap (not for commit)
+ROADMAP.md
+REBRAND_PLAN.md
+RECON_NOTES.md
