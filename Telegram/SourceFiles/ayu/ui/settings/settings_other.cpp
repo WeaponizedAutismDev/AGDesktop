@@ -133,7 +133,7 @@ void AddCryptoDonate(const QString &name, const QString &address, not_null<Ui::V
 }
 
 rpl::producer<QString> AyuOther::title() {
-	return tr::ayu_CategoryOther();
+	return tr::ath0_CategoryOther();
 }
 
 AyuOther::AyuOther(
@@ -144,7 +144,7 @@ AyuOther::AyuOther(
 }
 
 void SetupDonations(not_null<Ui::VerticalLayout*> container, not_null<Window::SessionController*> controller) {
-	AddSubsectionTitle(container, tr::ayu_SupportHeader());
+	AddSubsectionTitle(container, tr::ath0_SupportHeader());
 	AddDonate(
 		AddButtonWithIcon(
 			container,
@@ -163,10 +163,10 @@ void SetupDonations(not_null<Ui::VerticalLayout*> container, not_null<Window::Se
 	AddSkip(container);
 
 	AddDividerText(container,
-				   tr::ayu_SupportDescription2(
+				   tr::ath0_SupportDescription2(
 					   lt_item,
 					   rpl::single(
-						   Ui::Text::Link(tr::ayu_SupportDescription1(tr::now), QString("tg://support"))
+						   Ui::Text::Link(tr::ath0_SupportDescription1(tr::now), QString("tg://support"))
 					   ),
 					   Ui::Text::WithEntities
 				   )
@@ -177,11 +177,11 @@ void SetupCrashReporting(not_null<Ui::VerticalLayout*> container) {
 	auto *settings = &AyuSettings::getInstance();
 
 	AddSkip(container);
-	AddSubsectionTitle(container, tr::ayu_CategoryOther());
+	AddSubsectionTitle(container, tr::ath0_CategoryOther());
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_CrashReporting(),
+		tr::ath0_CrashReporting(),
 		st::settingsButton,
 		{&st::menuIconReport}
 	)->toggleOn(
@@ -199,14 +199,14 @@ void SetupCrashReporting(not_null<Ui::VerticalLayout*> container) {
 		},
 		container->lifetime());
 	AddSkip(container);
-	AddDividerText(container, tr::ayu_CrashReportingDescription());
+	AddDividerText(container, tr::ath0_CrashReportingDescription());
 }
 
 void SetupOtherThings(not_null<Ui::VerticalLayout*> container, not_null<Window::SessionController*> controller) {
 	AddSkip(container);
 	AddButtonWithIcon(
 		container,
-		tr::ayu_RegisterURLScheme(),
+		tr::ath0_RegisterURLScheme(),
 		st::settingsButton,
 		{&st::menuIconLink}
 	)->setClickedCallback([=]
@@ -216,13 +216,13 @@ void SetupOtherThings(not_null<Ui::VerticalLayout*> container, not_null<Window::
 	});
 	AddButtonWithIcon(
 		container,
-		tr::ayu_ResetSettings(),
+		tr::ath0_ResetSettings(),
 		st::settingsButton,
 		{&st::menuIconRestore}
 	)->setClickedCallback([=]
 	{
 		controller->show(Ui::MakeConfirmBox({
-			.text = tr::ayu_ResetSettingsConfirmation(Ui::Text::RichLangValue),
+			.text = tr::ath0_ResetSettingsConfirmation(Ui::Text::RichLangValue),
 			.confirmed = [=](Fn<void()> &&close)
 			{
 				AyuSettings::reset();

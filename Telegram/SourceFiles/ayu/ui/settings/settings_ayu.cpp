@@ -35,39 +35,39 @@ AyuGhost::AyuGhost(
 void SetupGhostModeToggle(not_null<Ui::VerticalLayout*> container) {
 	auto *settings = &AyuSettings::getInstance();
 
-	AddSubsectionTitle(container, tr::ayu_GhostEssentialsHeader());
+	AddSubsectionTitle(container, tr::ath0_GhostEssentialsHeader());
 
 	std::vector checkboxes{
 		NestedEntry{
-			tr::ayu_DontReadMessages(tr::now), !settings->sendReadMessages, [=](bool enabled)
+			tr::ath0_DontReadMessages(tr::now), !settings->sendReadMessages, [=](bool enabled)
 			{
 				AyuSettings::set_sendReadMessages(!enabled);
 				AyuSettings::save();
 			}
 		},
 		NestedEntry{
-			tr::ayu_DontReadStories(tr::now), !settings->sendReadStories, [=](bool enabled)
+			tr::ath0_DontReadStories(tr::now), !settings->sendReadStories, [=](bool enabled)
 			{
 				AyuSettings::set_sendReadStories(!enabled);
 				AyuSettings::save();
 			}
 		},
 		NestedEntry{
-			tr::ayu_DontSendOnlinePackets(tr::now), !settings->sendOnlinePackets, [=](bool enabled)
+			tr::ath0_DontSendOnlinePackets(tr::now), !settings->sendOnlinePackets, [=](bool enabled)
 			{
 				AyuSettings::set_sendOnlinePackets(!enabled);
 				AyuSettings::save();
 			}
 		},
 		NestedEntry{
-			tr::ayu_DontSendUploadProgress(tr::now), !settings->sendUploadProgress, [=](bool enabled)
+			tr::ath0_DontSendUploadProgress(tr::now), !settings->sendUploadProgress, [=](bool enabled)
 			{
 				AyuSettings::set_sendUploadProgress(!enabled);
 				AyuSettings::save();
 			}
 		},
 		NestedEntry{
-			tr::ayu_SendOfflinePacketAfterOnline(tr::now), settings->sendOfflinePacketAfterOnline, [=](bool enabled)
+			tr::ath0_SendOfflinePacketAfterOnline(tr::now), settings->sendOfflinePacketAfterOnline, [=](bool enabled)
 			{
 				AyuSettings::set_sendOfflinePacketAfterOnline(enabled);
 				AyuSettings::save();
@@ -75,7 +75,7 @@ void SetupGhostModeToggle(not_null<Ui::VerticalLayout*> container) {
 		},
 	};
 
-	AddCollapsibleToggle(container, tr::ayu_GhostModeToggle(), checkboxes, true);
+	AddCollapsibleToggle(container, tr::ath0_GhostModeToggle(), checkboxes, true);
 }
 
 void SetupGhostEssentials(
@@ -88,7 +88,7 @@ void SetupGhostEssentials(
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_MarkReadAfterAction(),
+		tr::ath0_MarkReadAfterAction(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		markReadAfterActionVal->value()
@@ -110,7 +110,7 @@ void SetupGhostEssentials(
 		},
 		container->lifetime());
 	AddSkip(container);
-	AddDividerText(container, tr::ayu_MarkReadAfterActionDescription());
+	AddDividerText(container, tr::ath0_MarkReadAfterActionDescription());
 }
 
 void SetupScheduleMessages(
@@ -121,7 +121,7 @@ void SetupScheduleMessages(
 	AddSkip(container);
 	AddButtonWithIcon(
 		container,
-		tr::ayu_UseScheduledMessages(),
+		tr::ath0_UseScheduledMessages(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		useScheduledMessagesVal->value()
@@ -143,7 +143,7 @@ void SetupScheduleMessages(
 		},
 		container->lifetime());
 	AddSkip(container);
-	AddDividerText(container, tr::ayu_UseScheduledMessagesDescription());
+	AddDividerText(container, tr::ath0_UseScheduledMessagesDescription());
 }
 
 void SetupSendWithoutSound(not_null<Ui::VerticalLayout*> container) {
@@ -152,7 +152,7 @@ void SetupSendWithoutSound(not_null<Ui::VerticalLayout*> container) {
 	AddSkip(container);
 	AddButtonWithIcon(
 		container,
-		tr::ayu_SendWithoutSoundByDefault(),
+		tr::ath0_SendWithoutSoundByDefault(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->sendWithoutSound)
@@ -169,17 +169,17 @@ void SetupSendWithoutSound(not_null<Ui::VerticalLayout*> container) {
 		},
 		container->lifetime());
 	AddSkip(container);
-	AddDividerText(container, tr::ayu_SendWithoutSoundByDefaultDescription());
+	AddDividerText(container, tr::ath0_SendWithoutSoundByDefaultDescription());
 }
 
 void SetupSpyEssentials(not_null<Ui::VerticalLayout*> container) {
 	auto *settings = &AyuSettings::getInstance();
 
-	AddSubsectionTitle(container, tr::ayu_SpyEssentialsHeader());
+	AddSubsectionTitle(container, tr::ath0_SpyEssentialsHeader());
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_SaveDeletedMessages(),
+		tr::ath0_SaveDeletedMessages(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->saveDeletedMessages)
@@ -198,7 +198,7 @@ void SetupSpyEssentials(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_SaveMessagesHistory(),
+		tr::ath0_SaveMessagesHistory(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->saveMessagesHistory)
@@ -221,7 +221,7 @@ void SetupSpyEssentials(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_MessageSavingSaveForBots(),
+		tr::ath0_MessageSavingSaveForBots(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->saveForBots)
@@ -242,11 +242,11 @@ void SetupSpyEssentials(not_null<Ui::VerticalLayout*> container) {
 void SetupOther(not_null<Ui::VerticalLayout*> container) {
 	auto *settings = &AyuSettings::getInstance();
 
-	AddSubsectionTitle(container, tr::ayu_MessageSavingOtherHeader());
+	AddSubsectionTitle(container, tr::ath0_MessageSavingOtherHeader());
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_LocalPremium(),
+		tr::ath0_LocalPremium(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->localPremium)
@@ -265,7 +265,7 @@ void SetupOther(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_DisableAds(),
+		tr::ath0_DisableAds(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->disableAds)

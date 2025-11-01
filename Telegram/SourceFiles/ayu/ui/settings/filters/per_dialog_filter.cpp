@@ -107,13 +107,13 @@ void PerDialogFiltersListController::prepare() {
 		auto row = std::make_unique<PerDialogFiltersListRow>(peerId);
 		auto status = QString();
 		if (count.filters > 0) {
-			status += tr::ayu_RegexFiltersAmount(tr::now, lt_count, count.filters);
+			status += tr::ath0_RegexFiltersAmount(tr::now, lt_count, count.filters);
 			if (count.exclusions > 0) {
 				status += ", ";
 			}
 		}
 		if (count.exclusions > 0) {
-			status += tr::ayu_RegexFiltersExcludedAmount(tr::now, lt_count, count.exclusions);
+			status += tr::ath0_RegexFiltersExcludedAmount(tr::now, lt_count, count.exclusions);
 		}
 
 		row->setCustomStatus(status, false);

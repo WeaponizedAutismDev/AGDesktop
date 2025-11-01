@@ -34,12 +34,12 @@
 namespace Settings {
 
 rpl::producer<QString> AyuFilters::title() {
-	return tr::ayu_CategoryFilters();
+	return tr::ath0_CategoryFilters();
 }
 
 void AyuFilters::fillTopBarMenu(const Ui::Menu::MenuCallback &addAction) {
 	addAction(
-		tr::ayu_FiltersMenuSelectChat(tr::now),
+		tr::ath0_FiltersMenuSelectChat(tr::now),
 		[=]
 		{
 			if (const auto window = Core::App().activeWindow()) {
@@ -59,7 +59,7 @@ void AyuFilters::fillTopBarMenu(const Ui::Menu::MenuCallback &addAction) {
 							controller->showSettings(AyuFiltersList::Id());
 							return true;
 						},
-						tr::ayu_FiltersMenuSelectChat(),
+						tr::ath0_FiltersMenuSelectChat(),
 						nullptr,
 						types
 					);
@@ -71,7 +71,7 @@ void AyuFilters::fillTopBarMenu(const Ui::Menu::MenuCallback &addAction) {
 		.isSeparator = true
 	});
 	addAction(
-		tr::ayu_FiltersMenuImport(tr::now),
+		tr::ath0_FiltersMenuImport(tr::now),
 		[=]
 		{
 			auto box = Box(Ui::FillImportFiltersBox, true);
@@ -80,7 +80,7 @@ void AyuFilters::fillTopBarMenu(const Ui::Menu::MenuCallback &addAction) {
 		&st::menuIconArchive);
 	if (AyuDatabase::hasFilters()) {
 		addAction(
-			tr::ayu_FiltersMenuExport(tr::now),
+			tr::ath0_FiltersMenuExport(tr::now),
 			[=]
 			{
 				auto box = Box(Ui::FillImportFiltersBox, false);
@@ -92,7 +92,7 @@ void AyuFilters::fillTopBarMenu(const Ui::Menu::MenuCallback &addAction) {
 		.isSeparator = true
 	});
 	addAction(
-		tr::ayu_FiltersMenuClear(tr::now),
+		tr::ath0_FiltersMenuClear(tr::now),
 		[=]
 		{
 			auto callback = [=](Fn<void()> &&close)
@@ -105,9 +105,9 @@ void AyuFilters::fillTopBarMenu(const Ui::Menu::MenuCallback &addAction) {
 			};
 
 			auto box = Ui::MakeConfirmBox({
-				.text = tr::ayu_FiltersClearPopupText(),
+				.text = tr::ath0_FiltersClearPopupText(),
 				.confirmed = callback,
-				.confirmText = tr::ayu_FiltersClearPopupActionText()
+				.confirmText = tr::ath0_FiltersClearPopupActionText()
 			});
 			Ui::show(std::move(box));
 		},
@@ -125,11 +125,11 @@ void SetupFiltersSettings(not_null<Ui::VerticalLayout*> container) {
 	auto *settings = &AyuSettings::getInstance();
 
 	AddSkip(container);
-	AddSubsectionTitle(container, tr::ayu_RegexFilters());
+	AddSubsectionTitle(container, tr::ath0_RegexFilters());
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_RegexFiltersEnable(),
+		tr::ath0_RegexFiltersEnable(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->filtersEnabled)
@@ -151,7 +151,7 @@ void SetupFiltersSettings(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_RegexFiltersEnableSharedInChats(),
+		tr::ath0_RegexFiltersEnableSharedInChats(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->filtersEnabledInChats)
@@ -174,7 +174,7 @@ void SetupFiltersSettings(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_FiltersHideFromBlocked(),
+		tr::ath0_FiltersHideFromBlocked(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->hideFromBlocked)
@@ -202,7 +202,7 @@ void SetupShared(not_null<Window::SessionController*> controller,
 
 	auto button = container->add(object_ptr<Ui::SettingsButton>(
 		container,
-		tr::ayu_RegexFiltersShared()
+		tr::ath0_RegexFiltersShared()
 	));
 	button->addClickHandler([=]
 	{
@@ -216,7 +216,7 @@ void SetupShadowBan(not_null<Window::SessionController*> controller,
 					Ui::VerticalLayout *container) {
 	auto button = container->add(object_ptr<Ui::SettingsButton>(
 		container,
-		tr::ayu_FiltersShadowBan()
+		tr::ath0_FiltersShadowBan()
 	));
 	button->addClickHandler([=]
 	{
@@ -253,11 +253,11 @@ void SetupPerDialog(
 void SetupMessageFilters(not_null<Ui::VerticalLayout*> container) {
 	auto *settings = &AyuSettings::getInstance();
 
-	AddSubsectionTitle(container, tr::ayu_RegexFilters());
+	AddSubsectionTitle(container, tr::ath0_RegexFilters());
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_FiltersHideFromBlocked(),
+		tr::ath0_FiltersHideFromBlocked(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->hideFromBlocked)

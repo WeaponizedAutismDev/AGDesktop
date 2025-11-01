@@ -20,7 +20,7 @@
 namespace Settings {
 
 rpl::producer<QString> AyuGeneral::title() {
-	return tr::ayu_CategoryGeneral();
+	return tr::ath0_CategoryGeneral();
 }
 
 AyuGeneral::AyuGeneral(
@@ -64,7 +64,7 @@ void SetupTranslator(not_null<Ui::VerticalLayout*> container,
 
 	const auto button = AddButtonWithLabel(
 		container,
-		asBeta(tr::ayu_TranslationProvider()),
+		asBeta(tr::ath0_TranslationProvider()),
 		currentVal,
 		st::settingsButtonNoIcon);
 	button->addClickHandler(
@@ -82,7 +82,7 @@ void SetupTranslator(not_null<Ui::VerticalLayout*> container,
 					};
 					SingleChoiceBox(box,
 									{
-										.title = tr::ayu_TranslationProvider(),
+										.title = tr::ath0_TranslationProvider(),
 										.options = options,
 										.initialSelection = getIndex(settings->translationProvider),
 										.callback = save,
@@ -96,7 +96,7 @@ void SetupShowPeerId(not_null<Ui::VerticalLayout*> container,
 	auto *settings = &AyuSettings::getInstance();
 
 	const auto options = std::vector{
-		QString(tr::ayu_SettingsShowID_Hide(tr::now)),
+		QString(tr::ath0_SettingsShowID_Hide(tr::now)),
 		QString("Telegram API"),
 		QString("Bot API")
 	};
@@ -109,7 +109,7 @@ void SetupShowPeerId(not_null<Ui::VerticalLayout*> container,
 
 	const auto button = AddButtonWithLabel(
 		container,
-		tr::ayu_SettingsShowID(),
+		tr::ath0_SettingsShowID(),
 		currentVal,
 		st::settingsButtonNoIcon);
 	button->addClickHandler(
@@ -125,7 +125,7 @@ void SetupShowPeerId(not_null<Ui::VerticalLayout*> container,
 					};
 					SingleChoiceBox(box,
 									{
-										.title = tr::ayu_SettingsShowID(),
+										.title = tr::ath0_SettingsShowID(),
 										.options = options,
 										.initialSelection = settings->showPeerId,
 										.callback = save,
@@ -142,11 +142,11 @@ void SetupQoLToggles(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 	AddDivider(container);
 	AddSkip(container);
 
-	AddSubsectionTitle(container, tr::ayu_CategoryGeneral());
+	AddSubsectionTitle(container, tr::ath0_CategoryGeneral());
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_DisableStories(),
+		tr::ath0_DisableStories(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->disableStories)
@@ -165,14 +165,14 @@ void SetupQoLToggles(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 
 	std::vector checkboxes = {
 		NestedEntry{
-			tr::ayu_CollapseSimilarChannels(tr::now), settings->collapseSimilarChannels, [=](bool enabled)
+			tr::ath0_CollapseSimilarChannels(tr::now), settings->collapseSimilarChannels, [=](bool enabled)
 			{
 				AyuSettings::set_collapseSimilarChannels(enabled);
 				AyuSettings::save();
 			}
 		},
 		NestedEntry{
-			tr::ayu_HideSimilarChannelsTab(tr::now), settings->hideSimilarChannels, [=](bool enabled)
+			tr::ath0_HideSimilarChannelsTab(tr::now), settings->hideSimilarChannels, [=](bool enabled)
 			{
 				AyuSettings::set_hideSimilarChannels(enabled);
 				AyuSettings::save();
@@ -180,12 +180,12 @@ void SetupQoLToggles(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 		}
 	};
 
-	AddCollapsibleToggle(container, tr::ayu_DisableSimilarChannels(), checkboxes, true);
+	AddCollapsibleToggle(container, tr::ath0_DisableSimilarChannels(), checkboxes, true);
 
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_DisableNotificationsDelay(),
+		tr::ath0_DisableNotificationsDelay(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->disableNotificationsDelay)
@@ -206,7 +206,7 @@ void SetupQoLToggles(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_SettingsShowMessageSeconds(),
+		tr::ath0_SettingsShowMessageSeconds(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->showMessageSeconds)
@@ -233,7 +233,7 @@ void SetupQoLToggles(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_SettingsSpoofWebviewAsAndroid(),
+		tr::ath0_SettingsSpoofWebviewAsAndroid(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->spoofWebviewAsAndroid)
@@ -252,14 +252,14 @@ void SetupQoLToggles(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 
 	std::vector webviewCheckboxes = {
 		NestedEntry{
-			tr::ayu_SettingsIncreaseWebviewHeight(tr::now), settings->increaseWebviewHeight, [=](bool enabled)
+			tr::ath0_SettingsIncreaseWebviewHeight(tr::now), settings->increaseWebviewHeight, [=](bool enabled)
 			{
 				AyuSettings::set_increaseWebviewHeight(enabled);
 				AyuSettings::save();
 			}
 		},
 		NestedEntry{
-			tr::ayu_SettingsIncreaseWebviewWidth(tr::now), settings->increaseWebviewWidth, [=](bool enabled)
+			tr::ath0_SettingsIncreaseWebviewWidth(tr::now), settings->increaseWebviewWidth, [=](bool enabled)
 			{
 				AyuSettings::set_increaseWebviewWidth(enabled);
 				AyuSettings::save();
@@ -267,18 +267,18 @@ void SetupQoLToggles(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 		}
 	};
 
-	AddCollapsibleToggle(container, tr::ayu_SettingsBiggerWindow(), webviewCheckboxes, false);
+	AddCollapsibleToggle(container, tr::ath0_SettingsBiggerWindow(), webviewCheckboxes, false);
 
 	AddSkip(container);
 	AddDivider(container);
 	AddSkip(container);
 
 	// todo: move into a single checkbox with dropdown
-	AddSubsectionTitle(container, tr::ayu_ConfirmationsTitle());
+	AddSubsectionTitle(container, tr::ath0_ConfirmationsTitle());
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_StickerConfirmation(),
+		tr::ath0_StickerConfirmation(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->stickerConfirmation)
@@ -297,7 +297,7 @@ void SetupQoLToggles(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_GIFConfirmation(),
+		tr::ath0_GIFConfirmation(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->gifConfirmation)
@@ -316,7 +316,7 @@ void SetupQoLToggles(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_VoiceConfirmation(),
+		tr::ath0_VoiceConfirmation(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->voiceConfirmation)

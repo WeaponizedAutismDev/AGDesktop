@@ -169,7 +169,7 @@ Fn<void()> DeleteMyMessagesHandler(not_null<Window::SessionController*> controll
 	{
 		if (!controller->showFrozenError()) {
 			controller->show(Ui::MakeConfirmBox({
-				.text = tr::ayu_DeleteOwnMessagesConfirmation(tr::now),
+				.text = tr::ath0_DeleteOwnMessagesConfirmation(tr::now),
 				.confirmed =
 				[=](Fn<void()> &&close)
 				{
@@ -207,7 +207,7 @@ void AddDeletedMessagesActions(PeerData *peerData,
 	// }
 
 	addCallback(
-		tr::ayu_ViewDeletedMenuText(tr::now),
+		tr::ath0_ViewDeletedMenuText(tr::now),
 		[=]
 		{
 			sessionController->session().tryResolveWindow()
@@ -268,7 +268,7 @@ void AddJumpToBeginningAction(PeerData *peerData,
 	};
 
 	addCallback(
-		tr::ayu_JumpToBeginning(tr::now),
+		tr::ath0_JumpToBeginning(tr::now),
 		[=]
 		{
 			if (user) {
@@ -338,8 +338,8 @@ void AddShadowBanAction(PeerData *peerData,
 
 	addCallback({
 		.text = (shadowBanned
-					 ? tr::ayu_FiltersQuickUnshadowBan(tr::now)
-					 : tr::ayu_FiltersQuickShadowBan(tr::now)),
+					 ? tr::ath0_FiltersQuickUnshadowBan(tr::now)
+					 : tr::ath0_FiltersQuickShadowBan(tr::now)),
 		.handler = toggleShadowBan,
 		.icon = shadowBanned ? &st::menuIconShowInChat : &st::menuIconStealth,
 	});
@@ -368,7 +368,7 @@ void AddDeleteOwnMessagesAction(PeerData *peerData,
 		return;
 	}
 	addCallback(
-		tr::ayu_DeleteOwnMessages(tr::now),
+		tr::ath0_DeleteOwnMessages(tr::now),
 		DeleteMyMessagesHandler(sessionController, peerData),
 		&st::menuIconTTL);
 }
@@ -389,7 +389,7 @@ void AddHistoryAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 	}
 
 	menu->addAction(
-		tr::ayu_EditsHistoryMenuText(tr::now),
+		tr::ath0_EditsHistoryMenuText(tr::now),
 		[=]
 		{
 			item->history()->session().tryResolveWindow()
@@ -412,7 +412,7 @@ void AddHideMessageAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 	const auto history = item->history();
 	const auto owner = &history->owner();
 	menu->addAction(
-		tr::ayu_ContextHideMessage(tr::now),
+		tr::ath0_ContextHideMessage(tr::now),
 		[=]()
 		{
 			const auto ids = owner->itemOrItsGroup(item);
@@ -435,7 +435,7 @@ void AddUserMessagesAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 
 	if (item->history()->peer->isChat() || item->history()->peer->isMegagroup()) {
 		menu->addAction(
-			tr::ayu_UserMessagesMenuText(tr::now),
+			tr::ath0_UserMessagesMenuText(tr::now),
 			[=]
 			{
 				if (const auto controller = item->history()->session().tryResolveWindow()) {
@@ -520,7 +520,7 @@ void AddMessageDetailsAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 	const auto callback = Ui::Menu::CreateAddActionCallback(menu);
 
 	callback(Window::PeerMenuCallback::Args{
-		.text = tr::ayu_MessageDetailsPC(tr::now),
+		.text = tr::ath0_MessageDetailsPC(tr::now),
 		.handler = nullptr,
 		.icon = &st::menuIconInfo,
 		.fillSubmenu = [&](not_null<Ui::PopupMenu*> menu2)
@@ -530,7 +530,7 @@ void AddMessageDetailsAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 					menu2->addAction(Ui::ContextActionWithSubText(
 						menu2->menu(),
 						st::menuIconShowInChat,
-						tr::ayu_MessageDetailsViewsPC(tr::now),
+						tr::ath0_MessageDetailsViewsPC(tr::now),
 						messageViews
 					));
 				}
@@ -539,7 +539,7 @@ void AddMessageDetailsAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 					menu2->addAction(Ui::ContextActionWithSubText(
 						menu2->menu(),
 						st::menuIconViewReplies,
-						tr::ayu_MessageDetailsSharesPC(tr::now),
+						tr::ath0_MessageDetailsSharesPC(tr::now),
 						messageForwards
 					));
 				}
@@ -557,7 +557,7 @@ void AddMessageDetailsAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 			menu2->addAction(Ui::ContextActionWithSubText(
 				menu2->menu(),
 				st::menuIconSchedule,
-				tr::ayu_MessageDetailsDatePC(tr::now),
+				tr::ath0_MessageDetailsDatePC(tr::now),
 				formatDateTime(messageDate)
 			));
 
@@ -565,7 +565,7 @@ void AddMessageDetailsAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 				menu2->addAction(Ui::ContextActionWithSubText(
 					menu2->menu(),
 					st::menuIconEdit,
-					tr::ayu_MessageDetailsEditedDatePC(tr::now),
+					tr::ath0_MessageDetailsEditedDatePC(tr::now),
 					formatDateTime(messageEditDate)
 				));
 			}
@@ -574,7 +574,7 @@ void AddMessageDetailsAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 				menu2->addAction(Ui::ContextActionWithSubText(
 					menu2->menu(),
 					st::menuIconTTL,
-					tr::ayu_MessageDetailsForwardedDatePC(tr::now),
+					tr::ath0_MessageDetailsForwardedDatePC(tr::now),
 					formatDateTime(messageForwardedDate)
 				));
 			}
@@ -586,7 +586,7 @@ void AddMessageDetailsAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 					menu2->addAction(Ui::ContextActionWithSubText(
 						menu2->menu(),
 						st::menuIconDownload,
-						tr::ayu_MessageDetailsFileSizePC(tr::now),
+						tr::ath0_MessageDetailsFileSizePC(tr::now),
 						mediaSize
 					));
 				}
@@ -597,7 +597,7 @@ void AddMessageDetailsAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 					menu2->addAction(Ui::ContextActionWithSubText(
 						menu2->menu(),
 						st::menuIconShowAll,
-						tr::ayu_MessageDetailsMimeTypePC(tr::now),
+						tr::ath0_MessageDetailsMimeTypePC(tr::now),
 						mime.name()
 					));
 				}
@@ -608,7 +608,7 @@ void AddMessageDetailsAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 					menu2->addAction(Ui::ContextActionWithSubText(
 						menu2->menu(),
 						st::ayuEditsHistoryIcon,
-						tr::ayu_MessageDetailsFileNamePC(tr::now),
+						tr::ath0_MessageDetailsFileNamePC(tr::now),
 						shortified,
 						[=]
 						{
@@ -621,7 +621,7 @@ void AddMessageDetailsAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 					menu2->addAction(Ui::ContextActionWithSubText(
 						menu2->menu(),
 						st::menuIconStats,
-						tr::ayu_MessageDetailsResolutionPC(tr::now),
+						tr::ath0_MessageDetailsResolutionPC(tr::now),
 						mediaResolution
 					));
 				}
@@ -630,7 +630,7 @@ void AddMessageDetailsAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 					menu2->addAction(Ui::ContextActionWithSubText(
 						menu2->menu(),
 						st::menuIconBoosts,
-						tr::ayu_MessageDetailsDatacenterPC(tr::now),
+						tr::ath0_MessageDetailsDatacenterPC(tr::now),
 						mediaDC
 					));
 				}
@@ -683,7 +683,7 @@ void AddRepeatMessageAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 	const auto session = &history->session();
 
 	menu->addAction(
-		tr::ayu_RepeatMessage(tr::now),
+		tr::ath0_RepeatMessage(tr::now),
 		[=]
 		{
 			auto sendOptions = Api::SendOptions{
@@ -743,7 +743,7 @@ void AddReadUntilAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 	}
 
 	menu->addAction(
-		tr::ayu_ReadUntilMenuText(tr::now),
+		tr::ath0_ReadUntilMenuText(tr::now),
 		[=]()
 		{
 			readHistory(item);
@@ -778,7 +778,7 @@ void AddBurnAction(not_null<Ui::PopupMenu*> menu, HistoryItem *item) {
 	}
 
 	menu->addAction(
-		tr::ayu_ExpireMediaContextMenuText(tr::now),
+		tr::ath0_ExpireMediaContextMenuText(tr::now),
 		[=]()
 		{
 			const auto ids = MTP_vector<MTPint>(1, MTP_int(item->id));
@@ -829,7 +829,7 @@ void AddCreateFilterAction(not_null<Ui::PopupMenu*> menu,
 	}
 
 	menu->addAction(
-		tr::ayu_RegexFilterQuickAdd(tr::now),
+		tr::ath0_RegexFilterQuickAdd(tr::now),
 		[=]
 		{
 			RegexFilter filter;

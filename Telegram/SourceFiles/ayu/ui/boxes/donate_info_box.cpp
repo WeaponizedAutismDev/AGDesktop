@@ -151,7 +151,7 @@ void FillDonateInfoBox(not_null<Ui::GenericBox*> box, not_null<Window::SessionCo
 	box->verticalLayout()->add(
 		object_ptr<Ui::FlatLabel>(
 			box->verticalLayout(),
-			tr::ayu_SupportBoxHeader()
+			tr::ath0_SupportBoxHeader()
 			| Ui::Text::ToBold(),
 			st::boxTitle),
 		st::boxRowPadding,
@@ -160,7 +160,7 @@ void FillDonateInfoBox(not_null<Ui::GenericBox*> box, not_null<Window::SessionCo
 	box->verticalLayout()->add(
 		object_ptr<Ui::FlatLabel>(
 			box->verticalLayout(),
-			tr::ayu_SupportBoxInfo(),
+			tr::ath0_SupportBoxInfo(),
 			st::starrefCenteredText),
 		st::boxRowPadding);
 
@@ -184,7 +184,7 @@ void FillDonateInfoBox(not_null<Ui::GenericBox*> box, not_null<Window::SessionCo
 	const auto rubleAmount = RCManager::getInstance().donateAmountRub().append("₽");
 
 	const auto innerText = TextWithEntities{}.append(tonSymbol).append(tonAmount).append(", ").append(rubleAmount);
-	const auto str = tr::ayu_SupportBoxMakeDonationInfo(
+	const auto str = tr::ath0_SupportBoxMakeDonationInfo(
 		tr::now,
 		lt_amount1,
 		TextWithEntities{dollarAmount},
@@ -196,7 +196,7 @@ void FillDonateInfoBox(not_null<Ui::GenericBox*> box, not_null<Window::SessionCo
 	box->verticalLayout()->add(InfoRow(
 		box->verticalLayout(),
 		&controller->session(),
-		tr::ayu_SupportBoxMakeDonationHeader(tr::now),
+		tr::ath0_SupportBoxMakeDonationHeader(tr::now),
 		str,
 		&st::menuIconEarn,
 		emojiHelper.context()));
@@ -208,7 +208,7 @@ void FillDonateInfoBox(not_null<Ui::GenericBox*> box, not_null<Window::SessionCo
 	if (usernameTrimmed.startsWith('@')) {
 		usernameTrimmed.remove(0, 1);
 	}
-	const TextWithEntities proofText = tr::ayu_SupportBoxSendProofInfo(
+	const TextWithEntities proofText = tr::ath0_SupportBoxSendProofInfo(
 		tr::now,
 		lt_item,
 		Ui::Text::Link(username, controller->session().createInternalLinkFull(usernameTrimmed)),
@@ -216,7 +216,7 @@ void FillDonateInfoBox(not_null<Ui::GenericBox*> box, not_null<Window::SessionCo
 	box->verticalLayout()->add(InfoRow(
 		box->verticalLayout(),
 		&controller->session(),
-		tr::ayu_SupportBoxSendProofHeader(tr::now),
+		tr::ath0_SupportBoxSendProofHeader(tr::now),
 		proofText,
 		&st::menuIconPhoto,
 		Core::TextContext({
@@ -228,9 +228,9 @@ void FillDonateInfoBox(not_null<Ui::GenericBox*> box, not_null<Window::SessionCo
 	box->verticalLayout()->add(InfoRow(
 		box->verticalLayout(),
 		&controller->session(),
-		tr::ayu_SupportBoxReceiveBadgeHeader(tr::now),
+		tr::ath0_SupportBoxReceiveBadgeHeader(tr::now),
 		TextWithEntities{
-			tr::ayu_SupportBoxReceiveBadgeInfo(tr::now)
+			tr::ath0_SupportBoxReceiveBadgeInfo(tr::now)
 		},
 		&st::menuIconStarRefShare,
 		Core::TextContext({

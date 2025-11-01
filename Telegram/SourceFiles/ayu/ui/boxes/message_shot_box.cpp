@@ -51,14 +51,14 @@ void MessageShotBox::setupContent() {
 	const auto content = wrap.data();
 	setInnerWidget(object_ptr<Ui::OverrideMargins>(this, std::move(wrap)));
 
-	AddSubsectionTitle(content, tr::ayu_MessageShotPreview());
+	AddSubsectionTitle(content, tr::ath0_MessageShotPreview());
 
 	const auto imageView = content->add(object_ptr<ImageView>(content), st::imageViewPadding);
 
 	AddSkip(content);
 	AddDivider(content);
 	AddSkip(content);
-	AddSubsectionTitle(content, tr::ayu_MessageShotPreferences());
+	AddSubsectionTitle(content, tr::ath0_MessageShotPreferences());
 
 	const auto updatePreview = [=]
 	{
@@ -67,11 +67,11 @@ void MessageShotBox::setupContent() {
 	};
 
 	auto selectedTheme =
-		content->lifetime().make_state<rpl::variable<QString>>(tr::ayu_MessageShotThemeDefault(tr::now));
+		content->lifetime().make_state<rpl::variable<QString>>(tr::ath0_MessageShotThemeDefault(tr::now));
 
 	AddButtonWithLabel(
 		content,
-		tr::ayu_MessageShotTheme(),
+		tr::ath0_MessageShotTheme(),
 		selectedTheme->value(),
 		st::settingsButtonNoIcon
 	)->addClickHandler(
@@ -111,7 +111,7 @@ void MessageShotBox::setupContent() {
 		});
 	AddButtonWithIcon(
 		content,
-		tr::ayu_MessageShotShowBackground(),
+		tr::ath0_MessageShotShowBackground(),
 		st::settingsButtonNoIcon
 	)->toggleOn(rpl::single(_config.showBackground)
 	)->toggledValue(
@@ -126,7 +126,7 @@ void MessageShotBox::setupContent() {
 
 	AddButtonWithIcon(
 		content,
-		tr::ayu_MessageShotShowDate(),
+		tr::ath0_MessageShotShowDate(),
 		st::settingsButtonNoIcon
 	)->toggleOn(rpl::single(_config.showDate)
 	)->toggledValue(
@@ -141,7 +141,7 @@ void MessageShotBox::setupContent() {
 
 	AddButtonWithIcon(
 		content,
-		tr::ayu_MessageShotShowReactions(),
+		tr::ath0_MessageShotShowReactions(),
 		st::settingsButtonNoIcon
 	)->toggleOn(rpl::single(_config.showReactions)
 	)->toggledValue(
@@ -156,7 +156,7 @@ void MessageShotBox::setupContent() {
 
 	const auto latestToggle = AddButtonWithIcon(
 		content,
-		tr::ayu_MessageShotShowColorfulReplies(),
+		tr::ath0_MessageShotShowColorfulReplies(),
 		st::settingsButtonNoIcon
 	);
 	latestToggle->toggleOn(rpl::single(savedShowColorfulReplies)
@@ -173,7 +173,7 @@ void MessageShotBox::setupContent() {
 
 	AddSkip(content);
 
-	addButton(tr::ayu_MessageShotSave(),
+	addButton(tr::ath0_MessageShotSave(),
 			  [=]
 			  {
 				  const auto image = imageView->getImage();
@@ -189,7 +189,7 @@ void MessageShotBox::setupContent() {
 
 				  closeBox();
 			  });
-	addButton(tr::ayu_MessageShotCopy(),
+	addButton(tr::ath0_MessageShotCopy(),
 			  [=]
 			  {
 				  QGuiApplication::clipboard()->setImage(imageView->getImage());

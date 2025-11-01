@@ -135,10 +135,10 @@ void RegexEditBuilder(
 	RegexFilter data;
 
 	if (filter) {
-		box->setTitle(tr::ayu_RegexFiltersEdit());
+		box->setTitle(tr::ath0_RegexFiltersEdit());
 		data = *filter;
 	} else {
-		box->setTitle(tr::ayu_RegexFiltersAdd());
+		box->setTitle(tr::ath0_RegexFiltersAdd());
 		data.reversed = false;
 	}
 
@@ -147,27 +147,27 @@ void RegexEditBuilder(
 			box->verticalLayout(),
 			st::windowFilterNameInput,
 			Ui::InputField::Mode::MultiLine,
-			tr::ayu_RegexFiltersPlaceholder()),
+			tr::ath0_RegexFiltersPlaceholder()),
 		st::markdownLinkFieldPadding);
 	const auto errorText = AddError(box->verticalLayout(), regexValue);
 	const auto enabled = box->addRow(
 		object_ptr<Ui::Checkbox>(
 			box,
-			tr::ayu_EnableExpression(tr::now),
+			tr::ath0_EnableExpression(tr::now),
 			data.enabled,
 			st::defaultBoxCheckbox),
 		st::settingsCheckboxPadding);
 	const auto caseInsensitive = box->addRow(
 		object_ptr<Ui::Checkbox>(
 			box,
-			tr::ayu_CaseInsensitiveExpression(tr::now),
+			tr::ath0_CaseInsensitiveExpression(tr::now),
 			data.caseInsensitive,
 			st::defaultBoxCheckbox),
 		st::settingsCheckboxPadding);
 	const auto reversed = box->addRow(
 		object_ptr<Ui::Checkbox>(
 			box,
-			tr::ayu_ReversedExpression(tr::now),
+			tr::ath0_ReversedExpression(tr::now),
 			data.reversed,
 			st::defaultBoxCheckbox),
 		st::settingsCheckboxPadding);
@@ -232,7 +232,7 @@ void RegexEditBuilder(
 					// todo: custom toast with "Move to shared" button
 					// based on `PaidReactionToast`
 					Ui::Toast::Show(Ui::Toast::Config{
-						.text = tr::ayu_RegexFilterBulletinText(
+						.text = tr::ath0_RegexFilterBulletinText(
 							tr::now,
 							Ui::Text::RichLangValue
 						),

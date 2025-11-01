@@ -149,12 +149,12 @@ Fn<void()> badgeClickHandler(not_null<PeerData*> peer) {
 			const auto custom = getCustomBadge(getBareID(peer));
 			text = custom.text.isEmpty()
 					   ? (isExtera
-							  ? tr::ayu_DeveloperPopup(
+							  ? tr::ath0_DeveloperPopup(
 								  tr::now,
 								  lt_item,
 								  TextWithEntities{peer->name()},
 								  Ui::Text::RichLangValue)
-							  : tr::ayu_SupporterPopup(
+							  : tr::ath0_SupporterPopup(
 								  tr::now,
 								  lt_item,
 								  TextWithEntities{peer->name()},
@@ -162,18 +162,18 @@ Fn<void()> badgeClickHandler(not_null<PeerData*> peer) {
 					   : Ui::Text::RichLangValue(custom.text);
 		} else if (isExtera) {
 			text = peer->isUser()
-					   ? tr::ayu_DeveloperPopup(
+					   ? tr::ath0_DeveloperPopup(
 						   tr::now,
 						   lt_item,
 						   TextWithEntities{peer->name()},
 						   Ui::Text::RichLangValue)
-					   : tr::ayu_OfficialResourcePopup(
+					   : tr::ath0_OfficialResourcePopup(
 						   tr::now,
 						   lt_item,
 						   TextWithEntities{peer->name()},
 						   Ui::Text::RichLangValue);
 		} else if (isSupporter) {
-			text = tr::ayu_SupporterPopup(
+			text = tr::ath0_SupporterPopup(
 				tr::now,
 				lt_item,
 				TextWithEntities{peer->name()},
@@ -346,7 +346,7 @@ void readHistory(not_null<HistoryItem*> message) {
 
 QString formatTTL(int time) {
 	if (time == 0x7FFFFFFF) {
-		return QString("👀 %1").arg(tr::ayu_OneViewTTL(tr::now));
+		return QString("👀 %1").arg(tr::ath0_OneViewTTL(tr::now));
 	}
 
 	return QString("🕓 %1s").arg(time);

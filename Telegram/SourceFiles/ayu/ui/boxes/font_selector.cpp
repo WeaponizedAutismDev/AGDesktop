@@ -876,7 +876,7 @@ void AyuUi::FontSelectorBox::prepare() {
 				  closeBox();
 			  });
 
-	addLeftButton(tr::ayu_BoxActionReset(),
+	addLeftButton(tr::ath0_BoxActionReset(),
 				  [=]
 				  {
 					  _hook(qs(""));
@@ -895,7 +895,7 @@ void AyuUi::FontSelectorBox::prepare() {
 					  closeBox();
 				  });
 
-	setTitle(tr::ayu_CustomizeFontTitle());
+	setTitle(tr::ath0_CustomizeFontTitle());
 
 	const auto topContainer = Ui::CreateChild<Ui::VerticalLayout>(this);
 	setupTop(topContainer);

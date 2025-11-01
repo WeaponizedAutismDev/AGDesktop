@@ -36,10 +36,10 @@ namespace Settings {
 
 rpl::producer<QString> AyuFiltersList::title() {
 	if (shadowBan) {
-		return tr::ayu_FiltersShadowBan();
+		return tr::ath0_FiltersShadowBan();
 	}
 	if (!dialogId.has_value()) {
-		return tr::ayu_RegexFiltersShared();
+		return tr::ath0_RegexFiltersShared();
 	}
 
 	const auto did = abs(dialogId.value());
@@ -55,7 +55,7 @@ rpl::producer<QString> AyuFiltersList::title() {
 		}
 		res = name;
 	} else {
-		res = tr::ayu_RegexFiltersHeader(tr::now) + " (" + QString::number(did) + ")";
+		res = tr::ath0_RegexFiltersHeader(tr::now) + " (" + QString::number(did) + ")";
 	}
 
 	return rpl::single(res);
@@ -236,7 +236,7 @@ void AyuFiltersList::initializeSharedFilters(
 
 	if (!filters.empty()) {
 		AddSkip(container);
-		filtersTitle = AddSubsectionTitle(container, tr::ayu_RegexFiltersHeader());
+		filtersTitle = AddSubsectionTitle(container, tr::ath0_RegexFiltersHeader());
 
 		for (const auto &filter : filters) {
 			addNewFilter(filter);
@@ -250,7 +250,7 @@ void AyuFiltersList::initializeSharedFilters(
 			AddSkip(container);
 		}
 
-		excludedTitle = AddSubsectionTitle(container, tr::ayu_RegexFiltersExcluded());
+		excludedTitle = AddSubsectionTitle(container, tr::ath0_RegexFiltersExcluded());
 
 		for (const auto &exclusion : exclusions) {
 			addNewFilter(exclusion, true);
@@ -258,7 +258,7 @@ void AyuFiltersList::initializeSharedFilters(
 	}
 
 	if (filters.empty() && exclusions.empty()) {
-		Ui::AddDividerText(container, tr::ayu_RegexFiltersListEmpty());
+		Ui::AddDividerText(container, tr::ath0_RegexFiltersListEmpty());
 	}
 }
 
@@ -280,7 +280,7 @@ void AyuFiltersList::initializeShadowBan(not_null<Ui::VerticalLayout*> container
 	if (AyuSettings::getInstance().shadowBanIds.size() > 0) {
 		AddSkip(container);
 
-		filtersTitle = AddSubsectionTitle(container, tr::ayu_RegexFiltersHeader());
+		filtersTitle = AddSubsectionTitle(container, tr::ath0_RegexFiltersHeader());
 		const auto content = container->add(std::move(list));
 
 		AddSkip(container);
@@ -289,7 +289,7 @@ void AyuFiltersList::initializeShadowBan(not_null<Ui::VerticalLayout*> container
 		delegate->setContent(content->entity());
 		ctrl->setDelegate(delegate);
 	} else {
-		Ui::AddDividerText(container, tr::ayu_RegexFiltersListEmpty());
+		Ui::AddDividerText(container, tr::ath0_RegexFiltersListEmpty());
 	}
 }
 

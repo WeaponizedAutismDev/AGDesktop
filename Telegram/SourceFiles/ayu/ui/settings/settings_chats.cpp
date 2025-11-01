@@ -29,7 +29,7 @@
 namespace Settings {
 
 rpl::producer<QString> AyuChats::title() {
-	return tr::ayu_CategoryChats();
+	return tr::ath0_CategoryChats();
 }
 
 AyuChats::AyuChats(
@@ -46,7 +46,7 @@ void SetupStickersAndEmojiSettings(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_ShowOnlyAddedEmojisAndStickers(),
+		tr::ath0_ShowOnlyAddedEmojisAndStickers(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->showOnlyAddedEmojisAndStickers)
@@ -65,14 +65,14 @@ void SetupStickersAndEmojiSettings(not_null<Ui::VerticalLayout*> container) {
 
 	std::vector checkboxes = {
 		NestedEntry{
-			tr::ayu_HideReactionsInChannels(tr::now), !settings->showChannelReactions, [=](bool enabled)
+			tr::ath0_HideReactionsInChannels(tr::now), !settings->showChannelReactions, [=](bool enabled)
 			{
 				AyuSettings::set_hideChannelReactions(!enabled);
 				AyuSettings::save();
 			}
 		},
 		NestedEntry{
-			tr::ayu_HideReactionsInGroups(tr::now), !settings->showGroupReactions, [=](bool enabled)
+			tr::ath0_HideReactionsInGroups(tr::now), !settings->showGroupReactions, [=](bool enabled)
 			{
 				AyuSettings::set_hideGroupReactions(!enabled);
 				AyuSettings::save();
@@ -80,7 +80,7 @@ void SetupStickersAndEmojiSettings(not_null<Ui::VerticalLayout*> container) {
 		}
 	};
 
-	AddCollapsibleToggle(container, tr::ayu_HideReactions(), checkboxes, false);
+	AddCollapsibleToggle(container, tr::ath0_HideReactions(), checkboxes, false);
 
 	AddSkip(container);
 	AddDivider(container);
@@ -92,7 +92,7 @@ void SetupRecentStickersLimit(not_null<Ui::VerticalLayout*> container) {
 
 	container->add(
 		object_ptr<Button>(container,
-						   tr::ayu_SettingsRecentStickersCount(),
+						   tr::ath0_SettingsRecentStickersCount(),
 						   st::settingsButtonNoIcon)
 	)->setAttribute(Qt::WA_TransparentForMouseEvents);
 
@@ -143,9 +143,9 @@ void SetupGroupsAndChannels(not_null<Ui::VerticalLayout*> container, not_null<Wi
 					   /*rpl::single(QString("Groups and Channels"))*/);
 
 	const auto options = std::vector{
-		tr::ayu_ChannelBottomButtonHide(tr::now),
-		tr::ayu_ChannelBottomButtonMute(tr::now),
-		tr::ayu_ChannelBottomButtonDiscuss(tr::now),
+		tr::ath0_ChannelBottomButtonHide(tr::now),
+		tr::ath0_ChannelBottomButtonMute(tr::now),
+		tr::ath0_ChannelBottomButtonDiscuss(tr::now),
 	};
 
 	AddChooseButtonWithIconAndRightText(
@@ -153,8 +153,8 @@ void SetupGroupsAndChannels(not_null<Ui::VerticalLayout*> container, not_null<Wi
 		controller,
 		settings->channelBottomButton,
 		options,
-		tr::ayu_ChannelBottomButton(),
-		tr::ayu_ChannelBottomButton(),
+		tr::ath0_ChannelBottomButton(),
+		tr::ath0_ChannelBottomButton(),
 		[=](int index)
 		{
 			AyuSettings::set_channelBottomButton(index);
@@ -163,7 +163,7 @@ void SetupGroupsAndChannels(not_null<Ui::VerticalLayout*> container, not_null<Wi
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_QuickAdminShortcuts(),
+		tr::ath0_QuickAdminShortcuts(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->quickAdminShortcuts)
@@ -182,7 +182,7 @@ void SetupGroupsAndChannels(not_null<Ui::VerticalLayout*> container, not_null<Wi
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_SettingsShowMessageShot(),
+		tr::ath0_SettingsShowMessageShot(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->showMessageShot)
@@ -200,7 +200,7 @@ void SetupGroupsAndChannels(not_null<Ui::VerticalLayout*> container, not_null<Wi
 		container->lifetime());
 
 	AddSkip(container);
-	AddDividerText(container, tr::ayu_SettingsShowMessageShotDescription());
+	AddDividerText(container, tr::ath0_SettingsShowMessageShotDescription());
 	AddSkip(container);
 }
 
@@ -211,14 +211,14 @@ void SetupMarks(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithLabel(
 		container,
-		tr::ayu_DeletedMarkText(),
+		tr::ath0_DeletedMarkText(),
 		AyuSettings::get_deletedMarkReactive(),
 		st::settingsButtonNoIcon
 	)->addClickHandler(
 		[=]()
 		{
 			auto box = Box<EditMarkBox>(
-				tr::ayu_DeletedMarkText(),
+				tr::ath0_DeletedMarkText(),
 				settings->deletedMark,
 				QString("🧹"),
 				[=](const QString &value)
@@ -232,14 +232,14 @@ void SetupMarks(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithLabel(
 		container,
-		tr::ayu_EditedMarkText(),
+		tr::ath0_EditedMarkText(),
 		AyuSettings::get_editedMarkReactive(),
 		st::settingsButtonNoIcon
 	)->addClickHandler(
 		[=]()
 		{
 			auto box = Box<EditMarkBox>(
-				tr::ayu_EditedMarkText(),
+				tr::ath0_EditedMarkText(),
 				settings->editedMark,
 				tr::lng_edited(tr::now),
 				[=](const QString &value)
@@ -253,7 +253,7 @@ void SetupMarks(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_ReplaceMarksWithIcons(),
+		tr::ath0_ReplaceMarksWithIcons(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->replaceBottomInfoWithIcons)
@@ -276,7 +276,7 @@ void SetupMarks(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_HideShareButton(),
+		tr::ath0_HideShareButton(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->hideFastShare)
@@ -295,7 +295,7 @@ void SetupMarks(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_SimpleQuotesAndReplies(),
+		tr::ath0_SimpleQuotesAndReplies(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->simpleQuotesAndReplies)
@@ -323,7 +323,7 @@ void SetupWideMessagesMultiplier(not_null<Ui::VerticalLayout*> container,
 
 	container->add(
 		object_ptr<Button>(container,
-						   tr::ayu_SettingsWideMultiplier(),
+						   tr::ath0_SettingsWideMultiplier(),
 						   st::settingsButtonNoIcon)
 	)->setAttribute(Qt::WA_TransparentForMouseEvents);
 
@@ -387,7 +387,7 @@ void SetupWideMessagesMultiplier(not_null<Ui::VerticalLayout*> container,
 		});
 
 	AddSkip(container);
-	AddDividerText(container, tr::ayu_SettingsWideMultiplierDescription());
+	AddDividerText(container, tr::ath0_SettingsWideMultiplierDescription());
 	AddSkip(container);
 }
 
@@ -395,12 +395,12 @@ void SetupContextMenuElements(not_null<Ui::VerticalLayout*> container,
 							  not_null<Window::SessionController*> controller) {
 	auto *settings = &AyuSettings::getInstance();
 
-	AddSubsectionTitle(container, tr::ayu_ContextMenuElementsHeader());
+	AddSubsectionTitle(container, tr::ath0_ContextMenuElementsHeader());
 
 	const auto options = std::vector{
-		tr::ayu_SettingsContextMenuItemHidden(tr::now),
-		tr::ayu_SettingsContextMenuItemShown(tr::now),
-		tr::ayu_SettingsContextMenuItemExtended(tr::now),
+		tr::ath0_SettingsContextMenuItemHidden(tr::now),
+		tr::ath0_SettingsContextMenuItemShown(tr::now),
+		tr::ath0_SettingsContextMenuItemExtended(tr::now),
 	};
 
 	AddChooseButtonWithIconAndRightText(
@@ -408,8 +408,8 @@ void SetupContextMenuElements(not_null<Ui::VerticalLayout*> container,
 		controller,
 		settings->showReactionsPanelInContextMenu,
 		options,
-		tr::ayu_SettingsContextMenuReactionsPanel(),
-		tr::ayu_SettingsContextMenuTitle(),
+		tr::ath0_SettingsContextMenuReactionsPanel(),
+		tr::ath0_SettingsContextMenuTitle(),
 		st::menuIconReactions,
 		[=](int index)
 		{
@@ -421,8 +421,8 @@ void SetupContextMenuElements(not_null<Ui::VerticalLayout*> container,
 		controller,
 		settings->showViewsPanelInContextMenu,
 		options,
-		tr::ayu_SettingsContextMenuViewsPanel(),
-		tr::ayu_SettingsContextMenuTitle(),
+		tr::ath0_SettingsContextMenuViewsPanel(),
+		tr::ath0_SettingsContextMenuTitle(),
 		st::menuIconShowInChat,
 		[=](int index)
 		{
@@ -435,8 +435,8 @@ void SetupContextMenuElements(not_null<Ui::VerticalLayout*> container,
 		controller,
 		settings->showHideMessageInContextMenu,
 		options,
-		tr::ayu_ContextHideMessage(),
-		tr::ayu_SettingsContextMenuTitle(),
+		tr::ath0_ContextHideMessage(),
+		tr::ath0_SettingsContextMenuTitle(),
 		st::menuIconClear,
 		[=](int index)
 		{
@@ -448,8 +448,8 @@ void SetupContextMenuElements(not_null<Ui::VerticalLayout*> container,
 		controller,
 		settings->showUserMessagesInContextMenu,
 		options,
-		tr::ayu_UserMessagesMenuText(),
-		tr::ayu_SettingsContextMenuTitle(),
+		tr::ath0_UserMessagesMenuText(),
+		tr::ath0_SettingsContextMenuTitle(),
 		st::menuIconTTL,
 		[=](int index)
 		{
@@ -461,8 +461,8 @@ void SetupContextMenuElements(not_null<Ui::VerticalLayout*> container,
 		controller,
 		settings->showMessageDetailsInContextMenu,
 		options,
-		tr::ayu_MessageDetailsPC(),
-		tr::ayu_SettingsContextMenuTitle(),
+		tr::ath0_MessageDetailsPC(),
+		tr::ath0_SettingsContextMenuTitle(),
 		st::menuIconInfo,
 		[=](int index)
 		{
@@ -474,8 +474,8 @@ void SetupContextMenuElements(not_null<Ui::VerticalLayout*> container,
 		controller,
 		settings->showRepeatMessageInContextMenu,
 		options,
-		tr::ayu_RepeatMessage(),
-		tr::ayu_SettingsContextMenuTitle(),
+		tr::ath0_RepeatMessage(),
+		tr::ath0_SettingsContextMenuTitle(),
 		st::menuIconRestore,
 		[=](int index)
 		{
@@ -488,8 +488,8 @@ void SetupContextMenuElements(not_null<Ui::VerticalLayout*> container,
 			controller,
 			settings->showAddFilterInContextMenu,
 			options,
-			tr::ayu_RegexFilterQuickAdd(),
-			tr::ayu_SettingsContextMenuTitle(),
+			tr::ath0_RegexFilterQuickAdd(),
+			tr::ath0_SettingsContextMenuTitle(),
 			st::menuIconAddToFolder,
 			[=](int index)
 			{
@@ -499,18 +499,18 @@ void SetupContextMenuElements(not_null<Ui::VerticalLayout*> container,
 	}
 
 	AddSkip(container);
-	AddDividerText(container, tr::ayu_SettingsContextMenuDescription());
+	AddDividerText(container, tr::ath0_SettingsContextMenuDescription());
 	AddSkip(container);
 }
 
 void SetupMessageFieldElements(not_null<Ui::VerticalLayout*> container) {
 	auto *settings = &AyuSettings::getInstance();
 
-	AddSubsectionTitle(container, tr::ayu_MessageFieldElementsHeader());
+	AddSubsectionTitle(container, tr::ath0_MessageFieldElementsHeader());
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_MessageFieldElementAttach(),
+		tr::ath0_MessageFieldElementAttach(),
 		st::settingsButton,
 		{&st::messageFieldAttachIcon}
 	)->toggleOn(
@@ -530,7 +530,7 @@ void SetupMessageFieldElements(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_MessageFieldElementCommands(),
+		tr::ath0_MessageFieldElementCommands(),
 		st::settingsButton,
 		{&st::messageFieldCommandsIcon}
 	)->toggleOn(
@@ -550,7 +550,7 @@ void SetupMessageFieldElements(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_MessageFieldElementTTL(),
+		tr::ath0_MessageFieldElementTTL(),
 		st::settingsButton,
 		{&st::messageFieldTTLIcon}
 	)->toggleOn(
@@ -570,7 +570,7 @@ void SetupMessageFieldElements(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_MessageFieldElementEmoji(),
+		tr::ath0_MessageFieldElementEmoji(),
 		st::settingsButton,
 		{&st::messageFieldEmojiIcon}
 	)->toggleOn(
@@ -590,7 +590,7 @@ void SetupMessageFieldElements(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_MessageFieldElementVoice(),
+		tr::ath0_MessageFieldElementVoice(),
 		st::settingsButton,
 		{&st::messageFieldVoiceIcon}
 	)->toggleOn(
@@ -616,11 +616,11 @@ void SetupMessageFieldElements(not_null<Ui::VerticalLayout*> container) {
 void SetupMessageFieldPopups(not_null<Ui::VerticalLayout*> container) {
 	auto *settings = &AyuSettings::getInstance();
 
-	AddSubsectionTitle(container, tr::ayu_MessageFieldPopupsHeader());
+	AddSubsectionTitle(container, tr::ath0_MessageFieldPopupsHeader());
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_MessageFieldElementAttach(),
+		tr::ath0_MessageFieldElementAttach(),
 		st::settingsButton,
 		{&st::messageFieldAttachIcon}
 	)->toggleOn(
@@ -640,7 +640,7 @@ void SetupMessageFieldPopups(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_MessageFieldElementEmoji(),
+		tr::ath0_MessageFieldElementEmoji(),
 		st::settingsButton,
 		{&st::messageFieldEmojiIcon}
 	)->toggleOn(

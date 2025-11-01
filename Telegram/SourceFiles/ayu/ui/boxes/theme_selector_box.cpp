@@ -45,7 +45,7 @@ void ThemeSelectorBox::prepare() {
 void ThemeSelectorBox::setupContent() {
 	using namespace Settings;
 
-	setTitle(tr::ayu_MessageShotThemeSelectTitle());
+	setTitle(tr::ath0_MessageShotThemeSelectTitle());
 
 	auto wrap2 = object_ptr<Ui::VerticalLayout>(this);
 	const auto container = wrap2.data();
@@ -168,12 +168,12 @@ void ThemeSelectorBox::setupContent() {
 	AyuFeatures::MessageShot::paletteChosen(
 	) | rpl::start_with_next([=](const auto &palette)
 							 {
-								 _themeNames.fire(tr::ayu_MessageShotThemeDefault(tr::now));
+								 _themeNames.fire(tr::ath0_MessageShotThemeDefault(tr::now));
 								 _selectedPalette = palette;
 							 },
 							 lifetime());
 
-	addButton(tr::ayu_MessageShotThemeApply(),
+	addButton(tr::ath0_MessageShotThemeApply(),
 			  [=]
 			  {
 				  _palettes.fire(std::move(_selectedPalette));

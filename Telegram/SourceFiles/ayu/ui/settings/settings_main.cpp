@@ -88,11 +88,11 @@ void SetupCategories(
 
 	const auto categories = std::vector<CategoryInfo>{
 		{QString("AyuGram"), &st::menuIconGroupReactions, [=] { showOther(AyuGhost::Id()); }},
-		{asBeta(tr::ayu_CategoryFilters(tr::now)), &st::menuIconTagFilter, [=] { showOther(AyuFilters::Id()); }},
-		{tr::ayu_CategoryGeneral(tr::now), &st::menuIconShowAll, [=] { showOther(AyuGeneral::Id()); }},
-		{tr::ayu_CategoryAppearance(tr::now), &st::menuIconPalette, [=] { showOther(AyuAppearance::Id()); }},
-		{tr::ayu_CategoryChats(tr::now), &st::menuIconChatBubble, [=] { showOther(AyuChats::Id()); }},
-		{tr::ayu_CategoryOther(tr::now), &st::menuIconFave, [=] { showOther(AyuOther::Id()); }},
+		{asBeta(tr::ath0_CategoryFilters(tr::now)), &st::menuIconTagFilter, [=] { showOther(AyuFilters::Id()); }},
+		{tr::ath0_CategoryGeneral(tr::now), &st::menuIconShowAll, [=] { showOther(AyuGeneral::Id()); }},
+		{tr::ath0_CategoryAppearance(tr::now), &st::menuIconPalette, [=] { showOther(AyuAppearance::Id()); }},
+		{tr::ath0_CategoryChats(tr::now), &st::menuIconChatBubble, [=] { showOther(AyuChats::Id()); }},
+		{tr::ath0_CategoryOther(tr::now), &st::menuIconFave, [=] { showOther(AyuOther::Id()); }},
 	};
 
 	for (const auto &category : categories) {
@@ -123,7 +123,7 @@ void SetupLinks(
 
 	const auto links = std::vector<LinkInfo>{
 		{
-			tr::ayu_LinksChannel(tr::now),
+			tr::ath0_LinksChannel(tr::now),
 			QString("@ayugram"),
 			&st::menuIconChannel,
 			[=]
@@ -134,7 +134,7 @@ void SetupLinks(
 			}
 		},
 		{
-			tr::ayu_LinksChats(tr::now),
+			tr::ath0_LinksChats(tr::now),
 			QString("@ayugramchat"),
 			&st::menuIconChats,
 			[=]
@@ -145,7 +145,7 @@ void SetupLinks(
 			}
 		},
 		{
-			tr::ayu_LinksTranslate(tr::now),
+			tr::ath0_LinksTranslate(tr::now),
 			QString("Crowdin"),
 			&st::menuIconTranslate,
 			[=]
@@ -154,7 +154,7 @@ void SetupLinks(
 			}
 		},
 		{
-			tr::ayu_LinksDocumentation(tr::now),
+			tr::ath0_LinksDocumentation(tr::now),
 			QString("docs.ayugram.one"),
 			&st::menuIconIpAddress,
 			[=]
@@ -194,7 +194,7 @@ void AyuMain::setupContent(not_null<Window::SessionController*> controller) {
 	content->add(
 		object_ptr<Ui::FlatLabel>(
 			content,
-			tr::ayu_SettingsDescription(),
+			tr::ath0_SettingsDescription(),
 			st::centeredBoxLabel),
 		style::al_top);
 
@@ -205,14 +205,14 @@ void AyuMain::setupContent(not_null<Window::SessionController*> controller) {
 	AddDivider(content);
 	AddSkip(content);
 
-	AddSubsectionTitle(content, tr::ayu_CategoriesHeader());
+	AddSubsectionTitle(content, tr::ath0_CategoriesHeader());
 	SetupCategories(content, controller, showOtherMethod());
 
 	AddSkip(content);
 	AddDivider(content);
 	AddSkip(content);
 
-	AddSubsectionTitle(content, tr::ayu_LinksHeader());
+	AddSubsectionTitle(content, tr::ath0_LinksHeader());
 	SetupLinks(content, controller);
 
 	AddSkip(content);

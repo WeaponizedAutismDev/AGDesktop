@@ -57,7 +57,7 @@ bool ResolveUser(
 			}
 
 			Core::App().hideMediaView();
-			Ui::show(Ui::MakeInformBox(tr::ayu_UserNotFoundMessage()));
+			Ui::show(Ui::MakeInformBox(tr::ath0_UserNotFoundMessage()));
 		}
 	);
 
@@ -95,7 +95,7 @@ bool ResolveChat(
 			}
 
 			Core::App().hideMediaView();
-			Ui::show(Ui::MakeInformBox(tr::ayu_UserNotFoundMessage()));
+			Ui::show(Ui::MakeInformBox(tr::ath0_UserNotFoundMessage()));
 		}
 	);
 

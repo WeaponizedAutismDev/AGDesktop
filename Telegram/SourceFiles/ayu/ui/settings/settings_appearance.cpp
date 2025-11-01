@@ -42,7 +42,7 @@ bool HasDrawerBots(not_null<Window::SessionController*> controller) {
 }
 
 rpl::producer<QString> AyuAppearance::title() {
-	return tr::ayu_CategoryAppearance();
+	return tr::ath0_CategoryAppearance();
 }
 
 AyuAppearance::AyuAppearance(
@@ -53,7 +53,7 @@ AyuAppearance::AyuAppearance(
 }
 
 void SetupAppIcon(not_null<Ui::VerticalLayout*> container) {
-	AddSubsectionTitle(container, tr::ayu_AppIconHeader());
+	AddSubsectionTitle(container, tr::ath0_AppIconHeader());
 	container->add(
 		object_ptr<IconPicker>(container),
 		st::settingsCheckboxPadding);
@@ -65,7 +65,7 @@ void SetupAppIcon(not_null<Ui::VerticalLayout*> container) {
 	AddSkip(container);
 	AddButtonWithIcon(
 		container,
-		tr::ayu_HideNotificationBadge(),
+		tr::ath0_HideNotificationBadge(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->hideNotificationBadge)
@@ -82,7 +82,7 @@ void SetupAppIcon(not_null<Ui::VerticalLayout*> container) {
 		},
 		container->lifetime());
 	AddSkip(container);
-	AddDividerText(container, tr::ayu_HideNotificationBadgeDescription());
+	AddDividerText(container, tr::ath0_HideNotificationBadgeDescription());
 	AddSkip(container);
 #endif
 }
@@ -90,11 +90,11 @@ void SetupAppIcon(not_null<Ui::VerticalLayout*> container) {
 void SetupAppearance(not_null<Ui::VerticalLayout*> container, not_null<Window::SessionController*> controller) {
 	auto *settings = &AyuSettings::getInstance();
 
-	AddSubsectionTitle(container, tr::ayu_CategoryAppearance());
+	AddSubsectionTitle(container, tr::ath0_CategoryAppearance());
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_MaterialSwitches(),
+		tr::ath0_MaterialSwitches(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->materialSwitches)
@@ -113,7 +113,7 @@ void SetupAppearance(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_RemoveMessageTail(),
+		tr::ath0_RemoveMessageTail(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->removeMessageTail)
@@ -132,7 +132,7 @@ void SetupAppearance(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_DisableCustomBackgrounds(),
+		tr::ath0_DisableCustomBackgrounds(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->disableCustomBackgrounds)
@@ -151,9 +151,9 @@ void SetupAppearance(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 
 	const auto monoButton = AddButtonWithLabel(
 		container,
-		tr::ayu_MonospaceFont(),
+		tr::ath0_MonospaceFont(),
 		rpl::single(
-			settings->monoFont.isEmpty() ? tr::ayu_FontDefault(tr::now) : settings->monoFont
+			settings->monoFont.isEmpty() ? tr::ath0_FontDefault(tr::now) : settings->monoFont
 		),
 		st::settingsButtonNoIcon);
 	const auto monoGuard = Ui::CreateChild<base::binary_guard>(monoButton.get());
@@ -178,11 +178,11 @@ void SetupAppearance(not_null<Ui::VerticalLayout*> container, not_null<Window::S
 void SetupChatFolders(not_null<Ui::VerticalLayout*> container) {
 	auto *settings = &AyuSettings::getInstance();
 
-	AddSubsectionTitle(container, tr::ayu_ChatFoldersHeader());
+	AddSubsectionTitle(container, tr::ath0_ChatFoldersHeader());
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_HideNotificationCounters(),
+		tr::ath0_HideNotificationCounters(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->hideNotificationCounters)
@@ -201,7 +201,7 @@ void SetupChatFolders(not_null<Ui::VerticalLayout*> container) {
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_HideAllChats(),
+		tr::ath0_HideAllChats(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->hideAllChatsFolder)
@@ -226,7 +226,7 @@ void SetupChatFolders(not_null<Ui::VerticalLayout*> container) {
 void SetupDrawerElements(not_null<Ui::VerticalLayout*> container, not_null<Window::SessionController*> controller) {
 	auto *settings = &AyuSettings::getInstance();
 
-	AddSubsectionTitle(container, tr::ayu_DrawerElementsHeader());
+	AddSubsectionTitle(container, tr::ath0_DrawerElementsHeader());
 
 	AddButtonWithIcon(
 		container,
@@ -372,7 +372,7 @@ void SetupDrawerElements(not_null<Ui::VerticalLayout*> container, not_null<Windo
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_LReadMessages(),
+		tr::ath0_LReadMessages(),
 		st::settingsButton,
 		{&st::ayuLReadMenuIcon}
 	)->toggleOn(
@@ -392,7 +392,7 @@ void SetupDrawerElements(not_null<Ui::VerticalLayout*> container, not_null<Windo
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_SReadMessages(),
+		tr::ath0_SReadMessages(),
 		st::settingsButton,
 		{&st::ayuSReadMenuIcon}
 	)->toggleOn(
@@ -432,7 +432,7 @@ void SetupDrawerElements(not_null<Ui::VerticalLayout*> container, not_null<Windo
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_GhostModeToggle(),
+		tr::ath0_GhostModeToggle(),
 		st::settingsButton,
 		{&st::ayuGhostIcon}
 	)->toggleOn(
@@ -453,7 +453,7 @@ void SetupDrawerElements(not_null<Ui::VerticalLayout*> container, not_null<Windo
 #ifdef WIN32
 	AddButtonWithIcon(
 		container,
-		tr::ayu_StreamerModeToggle(),
+		tr::ath0_StreamerModeToggle(),
 		st::settingsButton,
 		{&st::ayuStreamerModeMenuIcon}
 	)->toggleOn(
@@ -478,11 +478,11 @@ void SetupDrawerElements(not_null<Ui::VerticalLayout*> container, not_null<Windo
 void SetupTrayElements(not_null<Ui::VerticalLayout*> container) {
 	auto *settings = &AyuSettings::getInstance();
 
-	AddSubsectionTitle(container, tr::ayu_TrayElementsHeader());
+	AddSubsectionTitle(container, tr::ath0_TrayElementsHeader());
 
 	AddButtonWithIcon(
 		container,
-		tr::ayu_EnableGhostModeTray(),
+		tr::ath0_EnableGhostModeTray(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->showGhostToggleInTray)
@@ -502,7 +502,7 @@ void SetupTrayElements(not_null<Ui::VerticalLayout*> container) {
 #ifdef WIN32
 	AddButtonWithIcon(
 		container,
-		tr::ayu_EnableStreamerModeTray(),
+		tr::ath0_EnableStreamerModeTray(),
 		st::settingsButtonNoIcon
 	)->toggleOn(
 		rpl::single(settings->showStreamerToggleInTray)
