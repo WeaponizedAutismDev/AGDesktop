@@ -554,7 +554,7 @@ void GifsListWidget::selectInlineResult(
 
 			if (settings.gifConfirmation) {
 				Ui::show(Ui::MakeConfirmBox({
-					.text = tr::ayu_ConfirmationGIF(),
+					.text = tr::ath0_ConfirmationGIF(),
 					.confirmed = sendGIFCallback,
 					.confirmText = tr::lng_send_button()
 				}));

@@ -173,14 +173,14 @@ Cover::Cover(
 	_name->setContextCopyText(tr::lng_profile_copy_fullname(tr::now));
 
 	_id->setSelectable(true);
-	_id->setContextCopyText(tr::ayu_ContextCopyID(tr::now));
+	_id->setContextCopyText(tr::ath0_ContextCopyID(tr::now));
 	const auto hook = [=](Ui::FlatLabel::ContextMenuRequest request) {
 		if (request.selection.empty()) {
 			const auto c = [=] {
 				auto id = IDString(_user);
 				TextUtilities::SetClipboardText({ id });
 			};
-			request.menu->addAction(tr::ayu_ContextCopyID(tr::now), c);
+			request.menu->addAction(tr::ath0_ContextCopyID(tr::now), c);
 		} else {
 			_id->fillContextMenu(request);
 		}
@@ -660,7 +660,7 @@ void SetupSections(
 
 	Ui::AddSkip(container);
 	addSection(
-		tr::ayu_AyuPreferences(),
+		tr::ath0_AyuPreferences(),
 		AyuMain::Id(),
         { .icon = &st::menuIconPremium });
 	Ui::AddSkip(container);

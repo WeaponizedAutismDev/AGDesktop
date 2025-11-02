@@ -2209,7 +2209,7 @@ void VoiceRecordBar::stopRecording(StopType type, bool ttlBeforeHide) {
 			if (settings.voiceConfirmation) {
 				_show->showBox(Ui::MakeConfirmBox(
 					{
-						.text = tr::ayu_ConfirmationVoice(),
+						.text = tr::ath0_ConfirmationVoice(),
 						.confirmed = std::move(sendVoiceCallback),
 						.confirmText = tr::lng_send_button()
 					}));
@@ -2302,7 +2302,7 @@ void VoiceRecordBar::requestToSendWithOptions(Api::SendOptions options) {
 		if (settings.voiceConfirmation) {
 			_show->showBox(Ui::MakeConfirmBox(
 				{
-					.text = tr::ayu_ConfirmationVoice(),
+					.text = tr::ath0_ConfirmationVoice(),
 					.confirmed = std::move(sendVoiceCallback),
 					.confirmText = tr::lng_send_button()
 				}));

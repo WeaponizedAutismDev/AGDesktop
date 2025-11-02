@@ -111,8 +111,8 @@ void Tray::rebuildMenu() {
 				bool ghostModeEnabled = AyuSettings::isGhostModeActive();
 
 				return ghostModeEnabled
-						   ? tr::ayu_DisableGhostModeTray(tr::now)
-						   : tr::ayu_EnableGhostModeTray(tr::now);
+						   ? tr::ath0_DisableGhostModeTray(tr::now)
+						   : tr::ath0_EnableGhostModeTray(tr::now);
 			});
 		_tray.addAction(
 			std::move(turnGhostModeText),
@@ -134,8 +134,8 @@ void Tray::rebuildMenu() {
 				bool streamerModeEnabled = AyuFeatures::StreamerMode::isEnabled();
 
 				return streamerModeEnabled
-						   ? tr::ayu_DisableStreamerModeTray(tr::now)
-						   : tr::ayu_EnableStreamerModeTray(tr::now);
+						   ? tr::ath0_DisableStreamerModeTray(tr::now)
+						   : tr::ath0_EnableStreamerModeTray(tr::now);
 			});
 		_tray.addAction(
 			std::move(turnStreamerModeText),

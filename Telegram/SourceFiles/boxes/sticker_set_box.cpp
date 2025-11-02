@@ -771,7 +771,7 @@ void StickerSetBox::updateButtons() {
 				const auto innerId = setId >> 32;
 
 				(*menu)->addAction(
-					tr::ayu_MessageDetailsPackOwnerPC(tr::now),
+					tr::ath0_MessageDetailsPackOwnerPC(tr::now),
 					[weak, session, innerId]
 					{
 						if (!weak) {
@@ -799,7 +799,7 @@ void StickerSetBox::updateButtons() {
 
 								if (!user) {
 									QGuiApplication::clipboard()->setText(QString::number(innerId));
-									strongInner->showToast(tr::ayu_IDCopiedToast(tr::now));
+									strongInner->showToast(tr::ath0_IDCopiedToast(tr::now));
 									return;
 								}
 
@@ -814,7 +814,7 @@ void StickerSetBox::updateButtons() {
 
 				if (settings.showPeerId != 0) {
 					(*menu)->addAction(
-						tr::ayu_ContextCopyID(tr::now),
+						tr::ath0_ContextCopyID(tr::now),
 						[weak, setId]
 						{
 							if (!weak) {
@@ -827,7 +827,7 @@ void StickerSetBox::updateButtons() {
 							}
 
 							QGuiApplication::clipboard()->setText(QString::number(setId));
-							strongInner->showToast(tr::ayu_IDCopiedToast(tr::now));
+							strongInner->showToast(tr::ath0_IDCopiedToast(tr::now));
 						},
 						&st::menuIconCopy);
 				}
@@ -1504,7 +1504,7 @@ void StickerSetBox::Inner::contextMenuEvent(QContextMenuEvent *e) {
 
 			const auto &settings = AyuSettings::getInstance();
 			if (settings.showPeerId != 0) {
-				_menu->addAction(tr::ayu_ContextCopyID(tr::now),
+				_menu->addAction(tr::ath0_ContextCopyID(tr::now),
 								 [=]
 								 {
 									 QGuiApplication::clipboard()->setText(QString::number(_pack[index]->id));

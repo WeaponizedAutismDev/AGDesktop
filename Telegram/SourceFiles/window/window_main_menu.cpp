@@ -109,7 +109,7 @@ constexpr auto kPlayStatusLimit = 12;
 
 [[nodiscard]] rpl::producer<TextWithEntities> SetStatusLabel(
 		not_null<Main::Session*> session) {
-	return tr::ayu_AyuPreferences() | rpl::map([](const QString& text) {
+	return tr::ath0_AyuPreferences() | rpl::map([](const QString& text) {
 		return Ui::Text::Link(text);
 	});
 }
@@ -715,7 +715,7 @@ void MainMenu::setupMenu() {
 
 		if (settings.showLReadToggleInDrawer) {
 			addAction(
-				tr::ayu_LReadMessages(),
+				tr::ath0_LReadMessages(),
 				{&st::ayuLReadMenuIcon}
 			)->setClickedCallback([=]
 			{
@@ -746,14 +746,14 @@ void MainMenu::setupMenu() {
 			};
 
 			addAction(
-				tr::ayu_SReadMessages(),
+				tr::ath0_SReadMessages(),
 				{&st::ayuSReadMenuIcon}
 			)->setClickedCallback([=]
 			{
 				auto box = Ui::MakeConfirmBox({
-					.text = tr::ayu_ReadConfirmationBoxQuestion(),
+					.text = tr::ath0_ReadConfirmationBoxQuestion(),
 					.confirmed = callback,
-					.confirmText = tr::ayu_ReadConfirmationBoxActionText()
+					.confirmText = tr::ath0_ReadConfirmationBoxActionText()
 				});
 				Ui::show(std::move(box));
 			});
@@ -833,7 +833,7 @@ void MainMenu::setupMenu() {
 
 	if (settings.showGhostToggleInDrawer) {
 		const auto ghostModeToggle = addAction(
-			tr::ayu_GhostModeToggle(),
+			tr::ath0_GhostModeToggle(),
 			{&st::ayuGhostIcon}
 		)->toggleOn(AyuSettings::get_ghostModeEnabledReactive());
 
@@ -849,7 +849,7 @@ void MainMenu::setupMenu() {
 
 	if (settings.showStreamerToggleInDrawer) {
 		const auto streamerModeToggle = addAction(
-			tr::ayu_StreamerModeToggle(),
+			tr::ath0_StreamerModeToggle(),
 			{&st::ayuStreamerModeMenuIcon}
 		)->toggleOn(rpl::single(AyuFeatures::StreamerMode::isEnabled()));
 

@@ -257,7 +257,7 @@ void Controller::Unsupported::setup(not_null<PeerData*> peer) {
 
 	_button = std::make_unique<Ui::RoundButton>(
 		wrap,
-		tr::ayu_UpdateAyuGram(),
+		tr::ath0_UpdateAyuGram(),
 		st::storiesUnsupportedUpdate);
 	_button->setTextTransform(Ui::RoundButton::TextTransform::NoTransform);
 	_button->show();

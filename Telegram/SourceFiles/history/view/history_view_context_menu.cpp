@@ -2077,7 +2077,7 @@ void AddSelectRestrictionAction(
 		addIcon
 			? st::historySponsoredAboutMenuLabelPosition
 			: st::historyHasCustomEmojiPosition,
-		tr::ayu_UnforwardableContextMenuText(
+		tr::ath0_UnforwardableContextMenuText(
 			tr::now,
 			Ui::Text::RichLangValue),
 		addIcon ? &st::menuIconCopyright : nullptr);

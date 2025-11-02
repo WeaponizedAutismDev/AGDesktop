@@ -452,7 +452,7 @@ void WrapWidget::setupTopBarMenuToggle() {
 							ShadowBanUtils::addShadowBan(realId);
 							return true;
 						},
-						tr::ayu_FiltersMenuSelectChat(),
+						tr::ath0_FiltersMenuSelectChat(),
 						nullptr,
 						types
 					);

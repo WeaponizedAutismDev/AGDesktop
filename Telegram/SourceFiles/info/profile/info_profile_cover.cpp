@@ -919,7 +919,7 @@ void Cover::setupSavedMusic() {
 				contextMenu->setAttribute(Qt::WA_DeleteOnClose);
 
 				contextMenu->addAction(
-					settings.adaptiveCoverColor ? tr::ayu_DisableColorfulCover(tr::now) : tr::ayu_EnableColorfulCover(tr::now),
+					settings.adaptiveCoverColor ? tr::ath0_DisableColorfulCover(tr::now) : tr::ath0_EnableColorfulCover(tr::now),
 					[=]
 					{
 						AyuSettings::set_adaptiveCoverColor(!settings.adaptiveCoverColor);
