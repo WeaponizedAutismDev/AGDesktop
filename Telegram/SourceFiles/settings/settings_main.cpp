@@ -660,7 +660,7 @@ void SetupSections(
 
 	Ui::AddSkip(container);
 	addSection(
-		tr::ath0_AyuPreferences(),
+		tr::ath0_ATH0Preferences(),
 		AyuMain::Id(),
         { .icon = &st::menuIconPremium });
 	Ui::AddSkip(container);

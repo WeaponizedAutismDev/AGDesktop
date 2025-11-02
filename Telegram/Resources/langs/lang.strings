@@ -7107,7 +7107,7 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 
 // ATH0Gram keys generated
 
-"ath0_AyuPreferences" = "ATH0Gram Preferences";
+"ath0_ATH0Preferences" = "ATH0Gram Preferences";
 "ath0_DocsText" = "Documentation";
 "ath0_CategoryGeneral" = "General";
 "ath0_CategoryAppearance" = "Appearance";
@@ -7337,8 +7337,8 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 "ath0_IconAyuTyan" = "AyuTyan";
 "ath0_WALMode" = "Enable WAL mode";
 "ath0_PushNotificationCount" = "FCM notifications received";
-"ath0_AyuAttachments" = "ATH0Gram Attachments Folder";
-"ath0_AyuDatabase" = "ATH0Gram Messages Database";
+"ath0_ATH0Attachments" = "ATH0Gram Attachments Folder";
+"ath0_ATH0Database" = "ATH0Gram Messages Database";
 "ath0_TelegramCacheDatabase" = "Telegram Messages Database";
 "ath0_ConfirmationsTitle" = "Confirmations";
 "ath0_StickerConfirmation" = "For Stickers";
@@ -7412,7 +7412,7 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 "ath0_FirstLaunchAlert" = "ATH0Gram is **free** software and should only be obtained from our **official sources**. You assume **full responsibility** for using this application with your account.";
 "ath0_LocalPremiumAlert" = "With local Telegram Premium, you won't get increased limits or be able to send animated emojis. Other users won't see your premium emoji and quote color.";
 "ath0_ExteraChatsAlert" = "Don't ask questions related to **ATH0Gram** in **exteraGram** chats. If you need help, ask in the official **ATH0Gram** chat.";
-"ath0_HideNextViewsDescriptionAyu" = "Hide my views forever, until Disconnected Mode is disabled.";
+"ath0_HideNextViewsDescriptionATH0" = "Hide my views forever, until Disconnected Mode is disabled.";
 "ath0_EnableGhostModeStories" = "Enable Disconnected Mode";
 "ath0_GhostModeIsActive" = "Disconnected Mode is Active";
 "ath0_SimpleQuotesAndReplies" = "Disable Colorful Replies";
@@ -7439,12 +7439,12 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 "ath0_MessageShotShowColorfulReplies" = "Show colorful replies";
 "ath0_SendAsSticker" = "Send as Sticker";
 "ath0_SendWithSound" = "Send With Sound";
-"ath0_AyuForwardStatusPreparing" = "Forwarding messages";
-"ath0_AyuForwardStatusLoadingMedia" = "Loading media";
-"ath0_AyuForwardStatusForwarding" = "Forwarding messages";
-"ath0_AyuForwardStatusFinished" = "Done";
-"ath0_AyuForwardStatusSentCount" = "sent {count1} of {count2}";
-"ath0_AyuForwardStatusChunkCount" = "chunk {count1} of {count2}";
+"ath0_ATH0ForwardStatusPreparing" = "Forwarding messages";
+"ath0_ATH0ForwardStatusLoadingMedia" = "Loading media";
+"ath0_ATH0ForwardStatusForwarding" = "Forwarding messages";
+"ath0_ATH0ForwardStatusFinished" = "Done";
+"ath0_ATH0ForwardStatusSentCount" = "sent {count1} of {count2}";
+"ath0_ATH0ForwardStatusChunkCount" = "chunk {count1} of {count2}";
 "ath0_JumpToBeginning" = "To Beginning";
 "ath0_ExpireMediaContextMenuText" = "Burn";
 "ath0_ExpiringVoiceMessageNote" = "This voice message can be played as many times as you want.";
