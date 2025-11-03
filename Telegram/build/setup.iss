@@ -3,7 +3,7 @@
 #define MyAppPublisher "WeaponizedAutism"
 #define MyAppURL "https://github.com/WeaponizedAutismDev/AGDesktop"
 #define MyAppExeName "ATH0Gram.exe"
-#define MyAppId "53F49750-6209-4FBF-9CA8-7A333C87D666"
+#define MyAppId "A7B0C8D1-47B0-4C2A-8D15-DE5470BA51C0"
 #define CurrentYear GetDateTimeString('yyyy','','')
 
 [Setup]
