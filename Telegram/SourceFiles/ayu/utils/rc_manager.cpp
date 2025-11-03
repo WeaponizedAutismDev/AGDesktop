@@ -32,6 +32,10 @@ std::unordered_set<ID> default_channels = {
 };
 
 void RCManager::start() {
+	// ATH0Gram: RCManager disabled - no supporter badges feature
+	DEBUG_LOG(("RCManager: disabled for ATH0Gram"));
+	return;
+
 	DEBUG_LOG(("RCManager: starting"));
 	_manager = std::make_unique<QNetworkAccessManager>();
 

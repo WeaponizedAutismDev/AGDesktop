@@ -33,6 +33,10 @@ AyuLanguage *AyuLanguage::currentInstance() {
 }
 
 void AyuLanguage::fetchLanguage(const QString &id, const QString &baseId) {
+	// ATH0Gram: Language updates disabled - use bundled translations only
+	DEBUG_LOG(("AyuLanguage: language updates disabled for ATH0Gram"));
+	return;
+
 	auto finalLangPackId = langMapping.contains(id) ? langMapping[id] : id;
 
 	if (Core::App().settings().proxy().isEnabled()) {

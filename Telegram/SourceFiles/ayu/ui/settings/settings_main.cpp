@@ -145,21 +145,12 @@ void SetupLinks(
 			}
 		},
 		{
-			tr::ath0_LinksTranslate(tr::now),
-			QString("Crowdin"),
-			&st::menuIconTranslate,
-			[=]
-			{
-				QDesktopServices::openUrl(QString("https://translate.ayugram.one"));
-			}
-		},
-		{
 			tr::ath0_LinksDocumentation(tr::now),
-			QString("docs.ayugram.one"),
+			QString("weaponizedautism.dev/docs"),
 			&st::menuIconIpAddress,
 			[=]
 			{
-				QDesktopServices::openUrl(QString("https://docs.ayugram.one"));
+				QDesktopServices::openUrl(QString("https://weaponizedautism.dev/docs"));
 			}
 		},
 	};

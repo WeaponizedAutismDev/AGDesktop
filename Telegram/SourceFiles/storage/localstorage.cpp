@@ -559,7 +559,8 @@ const QString &readAutoupdatePrefixRaw() {
 			return AutoupdatePrefix(value);
 		}
 	}
-	return AutoupdatePrefix("https://update.ayugram.one/");
+	// ATH0Gram: Auto-updates disabled - manual updates only
+	return AutoupdatePrefix("");
 }
 
 void writeAutoupdatePrefix(const QString &prefix) {
@@ -568,7 +569,8 @@ void writeAutoupdatePrefix(const QString &prefix) {
 	}
 
 	const auto current = readAutoupdatePrefixRaw();
-    const auto fixedPrefix = QString::fromStdString("https://update.ayugram.one/");
+    // ATH0Gram: Auto-updates disabled - manual updates only
+    const auto fixedPrefix = QString::fromStdString("");
 	if (current != fixedPrefix) {
 		AutoupdatePrefix(fixedPrefix);
 		QFile f(autoupdatePrefixFile());

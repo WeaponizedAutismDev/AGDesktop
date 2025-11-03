@@ -608,6 +608,11 @@ void LastCrashedWindow::checkingFinished() {
 		}
 	}
 
+	// ATH0Gram: Crash reporting disabled (opt-in only, no default endpoint)
+	// To enable, configure your own crash reporting endpoint
+	// _sendReply = _sendManager.post(QNetworkRequest(u"https://your-crash-endpoint.com/api/crash"_q), multipart);
+	return; // Disabled for ATH0Gram
+
 	_sendReply = _sendManager.post(QNetworkRequest(u"https://sentry.radolyn.com/api/2/minidump/?sentry_key=cad638b2ec4a692e57c3dcc4af1508bf"_q), multipart);
 	multipart->setParent(_sendReply);
 
