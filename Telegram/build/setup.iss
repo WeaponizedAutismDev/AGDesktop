@@ -1,8 +1,8 @@
-#define MyAppShortName "AyuGram"
-#define MyAppName "AyuGram Desktop"
-#define MyAppPublisher "Radolyn Labs"
-#define MyAppURL "https://github.com/AyuGram"
-#define MyAppExeName "AyuGram.exe"
+#define MyAppShortName "ATH0Gram"
+#define MyAppName "ATH0Gram Desktop"
+#define MyAppPublisher "WeaponizedAutism"
+#define MyAppURL "https://github.com/WeaponizedAutismDev/AGDesktop"
+#define MyAppExeName "ATH0Gram.exe"
 #define MyAppId "53F49750-6209-4FBF-9CA8-7A333C87D666"
 #define CurrentYear GetDateTimeString('yyyy','','')
 
@@ -44,11 +44,11 @@ SignTool=sha256
 #elif MyBuildTarget == "win64"
   ArchitecturesAllowed="x64compatible"
   ArchitecturesInstallIn64BitMode="x64compatible"
-  OutputBaseFilename=ayusetup-x64.{#MyAppVersionFull}
+  OutputBaseFilename=ath0setup-x64.{#MyAppVersionFull}
   #define ArchModulesFolder "x64"
   AppVerName={#MyAppName} {#MyAppVersion} 64bit
 #else
-  OutputBaseFilename=ayusetup.{#MyAppVersionFull}
+  OutputBaseFilename=ath0setup.{#MyAppVersionFull}
   #define ArchModulesFolder "x86"
   AppVerName={#MyAppName} {#MyAppVersion} 32bit
 #endif
