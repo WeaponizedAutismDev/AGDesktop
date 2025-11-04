@@ -280,7 +280,7 @@ void updateRegistry() {
 		writeLog(L"Updating registry..");
 		versionStr[versionLen / 2] = 0;
 		HKEY rkey;
-		LSTATUS status = RegOpenKeyEx(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{53F49750-6209-4FBF-9CA8-7A333C87D1ED}_is1", 0, KEY_QUERY_VALUE | KEY_SET_VALUE, &rkey);
+		LSTATUS status = RegOpenKeyEx(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{A7B0C8D1-47B0-4C2A-8D15-DE5470BA51C0}_is1", 0, KEY_QUERY_VALUE | KEY_SET_VALUE, &rkey);
 		if (status == ERROR_SUCCESS) {
 			writeLog(L"Checking registry install location..");
 			static const int bufSize = 4096;
