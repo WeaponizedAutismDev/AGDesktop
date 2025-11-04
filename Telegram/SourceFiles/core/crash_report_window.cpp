@@ -39,7 +39,7 @@ PreLaunchWindow::PreLaunchWindow(QString title) {
 	setWindowIcon(Window::CreateIcon());
 	setWindowFlags(Qt::Dialog | Qt::CustomizeWindowHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
 
-	setWindowTitle(title.isEmpty() ? u"AyuGram"_q : title);
+	setWindowTitle(title.isEmpty() ? u"ATH0Gram"_q : title);
 
 	QPalette p(palette());
 	p.setColor(QPalette::Window, QColor(255, 255, 255));
@@ -204,7 +204,7 @@ NotStartedWindow::NotStartedWindow()
 : _label(this)
 , _log(this)
 , _close(this) {
-	_label.setText(u"Could not start AyuGram Desktop!\nYou can see complete log below:"_q);
+	_label.setText(u"Could not start ATH0Gram Desktop!\nYou can see complete log below:"_q);
 
 	_log.setPlainText(Logs::full());
 
@@ -350,9 +350,9 @@ LastCrashedWindow::LastCrashedWindow(
 		[=] { networkSettings(); });
 
 	if (_sendingState == SendingNoReport) {
-		_label.setText(u"Last time AyuGram Desktop was not closed properly."_q);
+		_label.setText(u"Last time ATH0Gram Desktop was not closed properly."_q);
 	} else {
-		_label.setText(u"Last time AyuGram Desktop crashed :("_q);
+		_label.setText(u"Last time ATH0Gram Desktop crashed :("_q);
 	}
 
 	if (_updaterData) {
@@ -443,9 +443,9 @@ LastCrashedWindow::LastCrashedWindow(
 	});
 	_saveReport.setText(u"SAVE TO FILE"_q);
 	connect(&_saveReport, &QPushButton::clicked, [=] { saveReport(); });
-	_getApp.setText(u"GET THE LATEST VERSION OF AYUGRAM DESKTOP"_q);
+	_getApp.setText(u"GET THE LATEST VERSION OF ATH0GRAM DESKTOP"_q);
 	connect(&_getApp, &QPushButton::clicked, [=] {
-		QDesktopServices::openUrl(u"https://github.com/AyuGram/AyuGramDesktop"_q);
+		QDesktopServices::openUrl(u"https://github.com/WeaponizedAutismDev/AGDesktop"_q);
 	});
 
 	_send.setText(u"SEND CRASH REPORT"_q);
@@ -463,7 +463,8 @@ LastCrashedWindow::LastCrashedWindow(
 }
 
 void LastCrashedWindow::saveReport() {
-	QString to = QFileDialog::getSaveFileName(0, u"AyuGram Crash Report"_q, QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + u"/report.telegramcrash"_q, u"Telegram crash report (*.telegramcrash)"_q);
+	return; // Disabled for ATH0Gram
+	QString to = QFileDialog::getSaveFileName(0, u"ATH0Gram Crash Report"_q, QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + u"/report.telegramcrash"_q, u"Telegram crash report (*.telegramcrash)"_q);
 	if (!to.isEmpty()) {
 		QFile file(to);
 		if (file.open(QIODevice::WriteOnly)) {
@@ -475,6 +476,7 @@ void LastCrashedWindow::saveReport() {
 }
 
 QByteArray LastCrashedWindow::getCrashReportRaw() const {
+	return;  // Disabled for ATH0Gram
 	auto result = _dumpraw;
 	if (!_reportUsername.isEmpty() && _includeUsername.checkState() != Qt::Checked) {
 		result.replace(
@@ -485,6 +487,7 @@ QByteArray LastCrashedWindow::getCrashReportRaw() const {
 }
 
 void LastCrashedWindow::excludeReportUsername() {
+	return;  // Disabled for ATH0Gram
 	QString prefix = qstr("Username:");
 	QStringList lines = _reportText.split('\n');
 	for (int32 i = 0, l = lines.size(); i < l; ++i) {
@@ -498,6 +501,7 @@ void LastCrashedWindow::excludeReportUsername() {
 }
 
 QString LastCrashedWindow::getReportField(const QLatin1String &name, const QLatin1String &prefix) {
+	return;  // Disabled for ATH0Gram
 	QStringList lines = _reportText.split('\n');
 	for (int32 i = 0, l = lines.size(); i < l; ++i) {
 		if (lines.at(i).trimmed().startsWith(prefix)) {
@@ -518,6 +522,7 @@ QString LastCrashedWindow::getReportField(const QLatin1String &name, const QLati
 }
 
 void LastCrashedWindow::addReportFieldPart(const QLatin1String &name, const QLatin1String &prefix, QHttpMultiPart *multipart) {
+	return;  // Disabled for ATH0Gram
 	QString data = getReportField(name, prefix);
 	if (!data.isEmpty()) {
 		QHttpPart reportPart;
@@ -528,6 +533,7 @@ void LastCrashedWindow::addReportFieldPart(const QLatin1String &name, const QLat
 }
 
 void LastCrashedWindow::sendReport() {
+	return;  // Disabled for ATH0Gram
 	if (_checkReply) {
 		_checkReply->deleteLater();
 		_checkReply = nullptr;
@@ -546,6 +552,7 @@ void LastCrashedWindow::sendReport() {
 }
 
 QString LastCrashedWindow::minidumpFileName() {
+	return;  // Disabled for ATH0Gram
 	QFileInfo dmpFile(_minidumpFull);
 	if (dmpFile.exists() && dmpFile.size() > 0 && dmpFile.size() < 20 * 1024 * 1024 &&
 		QRegularExpression(u"^[a-zA-Z0-9\\-]{1,64}\\.dmp$"_q).match(dmpFile.fileName()).hasMatch()) {
@@ -555,6 +562,7 @@ QString LastCrashedWindow::minidumpFileName() {
 }
 
 void LastCrashedWindow::checkingFinished() {
+	return;  // Disabled for ATH0Gram
 	if (_sendReply) return;
 
 	auto multipart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
@@ -562,7 +570,7 @@ void LastCrashedWindow::checkingFinished() {
 	{
 		QString version = getReportField(qstr("version"), qstr("Version:"));
 		if (!version.isEmpty()) {
-			const auto sentryVersion = QString("ayugram-desktop@%1").arg(version);
+			const auto sentryVersion = QString("ATH0Gram-desktop@%1").arg(version);
 
 			QHttpPart reportPart;
 			reportPart.setHeader(QNetworkRequest::ContentDispositionHeader,
@@ -613,7 +621,7 @@ void LastCrashedWindow::checkingFinished() {
 	// _sendReply = _sendManager.post(QNetworkRequest(u"https://your-crash-endpoint.com/api/crash"_q), multipart);
 	return; // Disabled for ATH0Gram
 
-	_sendReply = _sendManager.post(QNetworkRequest(u"https://sentry.radolyn.com/api/2/minidump/?sentry_key=cad638b2ec4a692e57c3dcc4af1508bf"_q), multipart);
+	_sendReply = _sendManager.post(QNetworkRequest(u"https://nofuckingway.com/api/crash"_q), multipart);
 	multipart->setParent(_sendReply);
 
 	connect(
@@ -633,6 +641,7 @@ void LastCrashedWindow::checkingFinished() {
 }
 
 void LastCrashedWindow::updateControls() {
+	return;  // Disabled for ATH0Gram
 	int padding = _size, h = padding + _networkSettings.height() + padding;
 
 	_label.show();
@@ -847,7 +856,7 @@ void LastCrashedWindow::updateControls() {
 		h += _networkSettings.height() + padding;
 	}
 
-	QSize s(2 * padding + QFontMetrics(_label.font()).horizontalAdvance(u"Last time AyuGram Desktop was not closed properly."_q) + padding + _networkSettings.width(), h);
+	QSize s(2 * padding + QFontMetrics(_label.font()).horizontalAdvance(u"Last time ATH0Gram Desktop was not closed properly."_q) + padding + _networkSettings.width(), h);
 	if (s == size()) {
 		resizeEvent(0);
 	} else {
@@ -856,6 +865,7 @@ void LastCrashedWindow::updateControls() {
 }
 
 void LastCrashedWindow::networkSettings() {
+	return;  // Disabled for ATH0Gram
 	const auto &proxy = Core::Sandbox::Instance().sandboxProxy();
 	const auto box = new NetworkSettingsWindow(
 		this,
@@ -873,6 +883,7 @@ void LastCrashedWindow::networkSettings() {
 }
 
 void LastCrashedWindow::proxyUpdated() {
+	return;  // Disabled for ATH0Gram
 	if (_updaterData
 		&& ((_updaterData->state == UpdatingCheck)
 			|| (_updaterData->state == UpdatingFail
@@ -894,6 +905,7 @@ rpl::producer<MTP::ProxyData> LastCrashedWindow::proxyChanges() const {
 }
 
 void LastCrashedWindow::setUpdatingState(UpdatingState state, bool force) {
+	return;  // Disabled for ATH0Gram
 	Expects(_updaterData != nullptr);
 
 	if (_updaterData->state != state || force) {
@@ -929,6 +941,7 @@ void LastCrashedWindow::setUpdatingState(UpdatingState state, bool force) {
 }
 
 void LastCrashedWindow::setDownloadProgress(qint64 ready, qint64 total) {
+	return;  // Disabled for ATH0Gram
 	Expects(_updaterData != nullptr);
 
 	qint64 readyTenthMb = (ready * 10 / (1024 * 1024)), totalTenthMb = (total * 10 / (1024 * 1024));
@@ -943,6 +956,7 @@ void LastCrashedWindow::setDownloadProgress(qint64 ready, qint64 total) {
 }
 
 void LastCrashedWindow::updateRetry() {
+	return;  // Disabled for ATH0Gram
 	Expects(_updaterData != nullptr);
 
 	cSetLastUpdateCheck(0);
@@ -951,6 +965,7 @@ void LastCrashedWindow::updateRetry() {
 }
 
 void LastCrashedWindow::updateSkip() {
+	return;  // Disabled for ATH0Gram
 	Expects(_updaterData != nullptr);
 
 	if (_sendingState == SendingNoReport) {
@@ -972,6 +987,7 @@ void LastCrashedWindow::processContinue() {
 }
 
 void LastCrashedWindow::sendingError(QNetworkReply::NetworkError e) {
+	return;  // Disabled for ATH0Gram
 	LOG(("Crash report sending error: %1").arg(e));
 
 	_pleaseSendReport.setText(u"Sending crash report failed :("_q);
@@ -988,6 +1004,7 @@ void LastCrashedWindow::sendingError(QNetworkReply::NetworkError e) {
 }
 
 void LastCrashedWindow::sendingFinished() {
+	return;  // Disabled for ATH0Gram
 	if (_sendReply) {
 		QByteArray result = _sendReply->readAll();
 		LOG(("Crash report sending done, result: %1").arg(QString::fromUtf8(result)));
@@ -1003,6 +1020,7 @@ void LastCrashedWindow::sendingFinished() {
 }
 
 void LastCrashedWindow::sendingProgress(qint64 uploaded, qint64 total) {
+	return;  // Disabled for ATH0Gram
 	if (_sendingState != SendingProgress && _sendingState != SendingUploading) return;
 	_sendingState = SendingUploading;
 
@@ -1015,6 +1033,7 @@ void LastCrashedWindow::sendingProgress(qint64 uploaded, qint64 total) {
 }
 
 void LastCrashedWindow::closeEvent(QCloseEvent *e) {
+	return;  // Disabled for ATH0Gram
 	deleteLater();
 
 	if (CrashReports::Restart() == CrashReports::CantOpen) {
@@ -1025,6 +1044,7 @@ void LastCrashedWindow::closeEvent(QCloseEvent *e) {
 }
 
 void LastCrashedWindow::resizeEvent(QResizeEvent *e) {
+	return;  // Disabled for ATH0Gram
 	int padding = _size;
 	_label.move(padding, padding + (_networkSettings.height() - _label.height()) / 2);
 

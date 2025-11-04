@@ -87,7 +87,7 @@ void SetupCategories(
 	};
 
 	const auto categories = std::vector<CategoryInfo>{
-		{QString("AyuGram"), &st::menuIconGroupReactions, [=] { showOther(AyuGhost::Id()); }},
+		{QString("ATH0Gram"), &st::menuIconGroupReactions, [=] { showOther(AyuGhost::Id()); }},
 		{asBeta(tr::ath0_CategoryFilters(tr::now)), &st::menuIconTagFilter, [=] { showOther(AyuFilters::Id()); }},
 		{tr::ath0_CategoryGeneral(tr::now), &st::menuIconShowAll, [=] { showOther(AyuGeneral::Id()); }},
 		{tr::ath0_CategoryAppearance(tr::now), &st::menuIconPalette, [=] { showOther(AyuAppearance::Id()); }},
@@ -124,23 +124,23 @@ void SetupLinks(
 	const auto links = std::vector<LinkInfo>{
 		{
 			tr::ath0_LinksChannel(tr::now),
-			QString("@ayugram"),
+			QString("@ATH0gram"),
 			&st::menuIconChannel,
 			[=]
 			{
 				controller->showPeerByLink(Window::PeerByLinkInfo{
-					.usernameOrId = QString("ayugram"),
+					.usernameOrId = QString("ATH0gram"),
 				});
 			}
 		},
 		{
 			tr::ath0_LinksChats(tr::now),
-			QString("@ayugramchat"),
+			QString("@ATH0gramchat"),
 			&st::menuIconChats,
 			[=]
 			{
 				controller->showPeerByLink(Window::PeerByLinkInfo{
-					.usernameOrId = QString("ayugramchat"),
+					.usernameOrId = QString("ATH0gramchat"),
 				});
 			}
 		},
@@ -176,7 +176,7 @@ void AyuMain::setupContent(not_null<Window::SessionController*> controller) {
 	content->add(
 		object_ptr<Ui::FlatLabel>(
 			content,
-			rpl::single(QString("AyuGram Desktop v") + QString::fromLatin1(AppVersionStr)),
+			rpl::single(QString("ATH0Gram Desktop v") + QString::fromLatin1(AppVersionStr)),
 			st::boxTitle),
 		style::al_top);
 

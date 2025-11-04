@@ -22,7 +22,7 @@
 namespace Settings {
 
 rpl::producer<QString> AyuGhost::title() {
-	return rpl::single(QString("AyuGram"));
+	return rpl::single(QString("ATH0Gram"));
 }
 
 AyuGhost::AyuGhost(
