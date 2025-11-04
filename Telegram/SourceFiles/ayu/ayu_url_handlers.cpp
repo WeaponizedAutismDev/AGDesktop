@@ -136,6 +136,11 @@ bool HandleSupport(
 	Window::SessionController *controller,
 	const Match &match,
 	const QVariant &context) {
+	// ATH0Gram: Donation system disabled (no donation system for ATH0Gram)
+	// This was for supporting the original AyuGram developer
+	return false;
+
+	/* Original code preserved for reference:
 	if (!controller) {
 		return false;
 	}
@@ -144,6 +149,7 @@ bool HandleSupport(
 		controller);
 	Ui::show(std::move(box));
 	return true;
+	*/
 }
 
 bool TryHandleSpotify(const QString &url) {

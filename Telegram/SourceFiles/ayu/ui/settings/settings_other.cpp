@@ -144,6 +144,12 @@ AyuOther::AyuOther(
 }
 
 void SetupDonations(not_null<Ui::VerticalLayout*> container, not_null<Window::SessionController*> controller) {
+	// ATH0Gram: Donations disabled (no donation system for ATH0Gram)
+	// This section was for supporting the original AyuGram developer
+	// Code preserved for reference but not used
+	return;
+
+	/* Original donation code preserved for reference:
 	AddSubsectionTitle(container, tr::ath0_SupportHeader());
 	AddDonate(
 		AddButtonWithIcon(
@@ -171,6 +177,7 @@ void SetupDonations(not_null<Ui::VerticalLayout*> container, not_null<Window::Se
 					   Ui::Text::WithEntities
 				   )
 	);
+	*/
 }
 
 void SetupCrashReporting(not_null<Ui::VerticalLayout*> container) {

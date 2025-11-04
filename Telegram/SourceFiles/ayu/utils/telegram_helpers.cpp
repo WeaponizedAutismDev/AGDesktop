@@ -103,12 +103,22 @@ bool isExteraPeer(ID peerId) {
 }
 
 bool isSupporterPeer(ID peerId) {
-	return RCManager::getInstance().supporters().contains(peerId) || RCManager::getInstance().supporterChannels().
-		contains(peerId);
+	// ATH0Gram: Disabled for now - may repurpose for bot badges or other custom features
+	return false;
+
+	/* Original code preserved for future reference:
+	return RCManager::getInstance().supporters().contains(peerId)
+		|| RCManager::getInstance().supporterChannels().contains(peerId);
+	*/
 }
 
 bool isCustomBadgePeer(ID peerId) {
+	// ATH0Gram: Disabled for now - may repurpose for channel link badges or other custom features
+	return false;
+
+	/* Original code preserved for future reference:
 	return RCManager::getInstance().supporterCustomBadges().contains(peerId);
+	*/
 }
 
 CustomBadge getCustomBadge(ID peerId) {
@@ -120,6 +130,10 @@ CustomBadge getCustomBadge(ID peerId) {
 }
 
 rpl::producer<Info::Profile::Badge::Content> ExteraBadgeTypeFromPeer(not_null<PeerData*> peer) {
+	// ATH0Gram: Badge system disabled - may repurpose for custom features (bot badges, channel badges, etc.)
+	return rpl::single(Info::Profile::Badge::Content{Info::Profile::BadgeType::None});
+
+	/* Original logic preserved for future reference:
 	if (isCustomBadgePeer(getBareID(peer))) {
 		return rpl::single(Info::Profile::Badge::Content{
 			.badge = Info::Profile::BadgeType::ExteraCustom,
@@ -135,6 +149,7 @@ rpl::producer<Info::Profile::Badge::Content> ExteraBadgeTypeFromPeer(not_null<Pe
 		});
 	}
 	return rpl::single(Info::Profile::Badge::Content{Info::Profile::BadgeType::None});
+	*/
 }
 
 Fn<void()> badgeClickHandler(not_null<PeerData*> peer) {
