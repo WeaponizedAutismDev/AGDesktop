@@ -17,13 +17,19 @@ Go to ***BuildPath*** and run
 
     sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
-    git clone --recursive https://github.com/AyuGram/AyuGramDesktop.git tdesktop
+    git clone --recursive https://github.com/WeaponizedAutismDev/AGDesktop.git tdesktop
     ./tdesktop/Telegram/build/prepare/mac.sh
 
 ### Building the project
 
 Go to ***BuildPath*/tdesktop/Telegram** and run
 
-    ./configure.sh -D TDESKTOP_API_ID=2040 -D TDESKTOP_API_HASH=b18441a1ff607e10a989891a5462e627
+    ./configure.sh -D TDESKTOP_API_ID=2040 -D TDESKTOP_API_HASH=b18441a1ff607e10a989891a5462e627 -D DESKTOP_APP_DISABLE_AUTOUPDATE=ON -D DESKTOP_APP_DISABLE_CRASH_REPORTS=ON
+
+**ATH0Gram Build Flags:**
+- `DESKTOP_APP_DISABLE_AUTOUPDATE=ON` - Disables auto-update infrastructure (ATH0Gram uses manual updates only)
+- `DESKTOP_APP_DISABLE_CRASH_REPORTS=ON` - Removes crash reporting code (privacy-focused, no phoning home)
+
+**Note:** Use `DESKTOP_APP_DISABLE_*` (not `TDESKTOP_DISABLE_*`). The latter are compile definitions set automatically by CMake.
 
 Then launch Xcode, open ***BuildPath*/tdesktop/out/Telegram.xcodeproj** and build for Debug / Release.

@@ -8,7 +8,7 @@ Choose a folder for the future build, for example **/home/user/TBuild**. It will
 
 Install [poetry](https://python-poetry.org), go to ***BuildPath*** and run
 
-    git clone --recursive https://github.com/AyuGram/AyuGramDesktop.git tdesktop
+    git clone --recursive https://github.com/WeaponizedAutismDev/AGDesktop.git tdesktop
     ./tdesktop/Telegram/build/prepare/linux.sh
 
 ### Building the project
@@ -21,7 +21,9 @@ Go to ***BuildPath*/tdesktop** and run
         ghcr.io/telegramdesktop/tdesktop/centos_env:latest \
         /usr/src/tdesktop/Telegram/build/docker/centos_env/build.sh \
         -D TDESKTOP_API_ID=2040 \
-        -D TDESKTOP_API_HASH=b18441a1ff607e10a989891a5462e627
+        -D TDESKTOP_API_HASH=b18441a1ff607e10a989891a5462e627 \
+        -D DESKTOP_APP_DISABLE_AUTOUPDATE=ON \
+        -D DESKTOP_APP_DISABLE_CRASH_REPORTS=ON
 
 Or, to create a debug build, run
 
@@ -32,7 +34,15 @@ Or, to create a debug build, run
         ghcr.io/telegramdesktop/tdesktop/centos_env:latest \
         /usr/src/tdesktop/Telegram/build/docker/centos_env/build.sh \
         -D TDESKTOP_API_ID=2040 \
-        -D TDESKTOP_API_HASH=b18441a1ff607e10a989891a5462e627
+        -D TDESKTOP_API_HASH=b18441a1ff607e10a989891a5462e627 \
+        -D DESKTOP_APP_DISABLE_AUTOUPDATE=ON \
+        -D DESKTOP_APP_DISABLE_CRASH_REPORTS=ON
+
+**ATH0Gram Build Flags:**
+- `DESKTOP_APP_DISABLE_AUTOUPDATE=ON` - Disables auto-update infrastructure (ATH0Gram uses manual updates only)
+- `DESKTOP_APP_DISABLE_CRASH_REPORTS=ON` - Removes crash reporting code (privacy-focused, no phoning home)
+
+**Note:** Use `DESKTOP_APP_DISABLE_*` (not `TDESKTOP_DISABLE_*`). The latter are compile definitions set automatically by CMake.
 
 The built files will be in the `out` directory.
 
@@ -42,12 +52,14 @@ You can use `strip` command to reduce binary size.
 
 Ensure you've followed the instruction up to the [**Clone source code and prepare libraries**](#clone-source-code-and-prepare-libraries) step at least.
 
-Open the repository in Visual Studio Code, install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension and add the following to `.vscode/settings.json` (using [your **api_id** and **api_hash**](#obtain-your-api-credentials)):
+Open the repository in Visual Studio Code, install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension and add the following to `.vscode/settings.json`:
 
     {
         "cmake.configureSettings": {
-            "TDESKTOP_API_ID": "YOUR_API_ID",
-            "TDESKTOP_API_HASH": "YOUR_API_HASH"
+            "TDESKTOP_API_ID": "2040",
+            "TDESKTOP_API_HASH": "b18441a1ff607e10a989891a5462e627",
+            "DESKTOP_APP_DISABLE_AUTOUPDATE": "ON",
+            "DESKTOP_APP_DISABLE_CRASH_REPORTS": "ON"
         }
     }
 
