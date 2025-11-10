@@ -27,7 +27,7 @@ namespace Ayu::Translator {
 
 TranslateManager::Builder::Builder(
 	TranslateManager &manager,
-	Main::Session &session,
+	Main::Session *session,
 	const MTPflags<MTPmessages_translateText::Flags> &flags,
 	const MTPInputPeer &peer,
 	const MTPVector<MTPint> &id,
@@ -35,7 +35,7 @@ TranslateManager::Builder::Builder(
 	const MTPstring &to_lang
 )
 	: _manager(&manager)
-	  , _session(&session)
+	  , _session(session)
 	  , _flags(flags)
 	  , _peer(peer)
 	  , _idList(id)
@@ -43,12 +43,12 @@ TranslateManager::Builder::Builder(
 	  , _toLang(to_lang) {
 }
 
-TranslateManager::Builder &TranslateManager::Builder::done(std::function < void(const Result &) > cb) {
+TranslateManager::Builder &TranslateManager::Builder::done(std::function<void(const Result &)> cb) {
 	_done = std::move(cb);
 	return *this;
 }
 
-TranslateManager::Builder &TranslateManager::Builder::fail(std::function < void(const MTP::Error &) > cb) {
+TranslateManager::Builder &TranslateManager::Builder::fail(std::function<void(const MTP::Error &)> cb) {
 	_fail = std::move(cb);
 	return *this;
 }
@@ -73,7 +73,7 @@ void TranslateManager::Builder::cancel() {
 }
 
 TranslateManager::Builder TranslateManager::request(
-	Main::Session &session,
+	Main::Session *session,
 	const MTPflags<MTPmessages_translateText::Flags> &flags,
 	const MTPInputPeer &peer,
 	const MTPVector<MTPint> &id,
@@ -242,7 +242,8 @@ bool TranslateManager::cancel(mtpRequestId requestId) {
 	if (it->second.cancel) {
 		it->second.cancel();
 	}
-	_pending.erase(it);
+	// already erased by `triggerFail`
+	// _pending.erase(it);
 	return true;
 }
 
